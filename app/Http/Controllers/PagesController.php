@@ -19,10 +19,27 @@ class PagesController extends Controller
       $cate=TypeProduct::all()->toArray();
       return view('client.contact',['cate' => $cate]);
     }
-public function showProductSale(){
-  $sale= Product::where('sale','!=','null')->get()->toArray();
-  dd($sale);
-}
+    public function listsale(){
+      $sale= Product::where('sale','!=','null')->get()->toArray();
+      $cate = TypeProduct::all()->toArray();
+                $new = DB::table('products')->orderBy('id', 'desc')
+                           ->limit(5)                           
+                           ->get()                             
+                           ->toArray();
+      $new = DB::table('products')->orderBy('id', 'desc')
+                           ->limit(5)                           
+                           ->get()                             
+                           ->toArray();
+      $last=  DB::table('products')->orderBy('id')
+                           ->limit(5)                           
+                           ->get()                             
+                           ->toArray();
+     $view=  DB::table('products')->orderBy('id')
+                           ->limit(5)                           
+                           ->get()                             
+                           ->toArray();
+      return view('product.sale',['sale' => $sale ,'new' => $new ,'last' =>$last, 'view' => $view,'cate' =>$cate]);
+    }
     public function showHome()
     {
         $cate=TypeProduct::all()->toArray();
@@ -39,7 +56,7 @@ public function showProductSale(){
                            ->limit(5)                           
                            ->get()                             
                            ->toArray();
-        $sale= Product::where('sale','!=','null')->get()->toArray();
+        $sale= Product::where('sale','!=','null')->paginate(4);
         $data1=Product::where('type_id', '=', 1)->paginate(4);
         $data2=Product::where('type_id', '=', 2)->paginate(4);
         $data3=Product::where('type_id', '=', 4)->paginate(4);
@@ -87,7 +104,12 @@ public function showProductSale(){
     public function addcart($id)
     {
         $pro = Product::where('id',$id)->first();
-        Cart::add(['id' => $pro->id, 'name' => $pro->name, 'qty' => 1, 'price' => $pro->price,'options' => ['img' => $pro->image]]);
+        $realProduct=0;
+        if ($pro->sale== null) {
+          $realProduct= $pro->price;
+        }
+        $realProduct= (100-$pro->sale)*($pro->price/100);
+        Cart::add(['id' => $pro->id, 'name' => $pro->name, 'qty' => 1, 'price' => $realProduct,'options' => ['img' => $pro->image]]);
         return redirect()->back();
     }
 

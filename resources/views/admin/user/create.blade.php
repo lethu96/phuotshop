@@ -48,8 +48,8 @@
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select  className="gender" name="gender">
-                                    <option value="male">male</option>
-                                    <option value="female">female</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
                           </select>
                         </div>
                       </div>
@@ -77,7 +77,11 @@
                       <div class="form-group">
                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Status</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="status">
+                          <select name="status"   class="sign-up-input">
+                                <option value="1" >Admin</option>
+                                <option value="2" >Editor</option> 
+
+                            </select>
                         </div>
                       </div>
                       <div class="ln_solid"></div>

@@ -25,22 +25,19 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-edit"></i> Dashboard <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{ route('bill') }}">Bill</a></li>
-                      <li><a href="{{ route('comment') }}">Comment</a></li>
                       <li><a href="{{ route('size') }}">Size</a></li>
                       <li><a href="{{ route('color') }}">Color</a></li>
                       <li><a href="{{ route('company') }}">Company</a></li>
-                      <li><a href="#">Payment</a></li>
-                      <li><a href="{{ route('product') }}">Product</a></li>
-                      <li><a href="{{ route('sale') }}"">Sale</a></li>
-                      <li><a href="#">Ship oder</a></li>
+                      <li><a  href="{{ route('customer') }}">Customer</a>
                       <li><a href="{{ route('typeproduct') }}">Type Product</a></li>
                     </ul>
                   </li>
-                  <li><a a href="{{ route('report') }}"><i class="fa fa-desktop"></i> Report </span></a>
-                  <li><a a href="{{ route('user') }}"><i class="fa fa-desktop"></i> User </span></a>
+                  <li><a href="{{ route('bill') }}"><i class="fa fa-desktop"></i> Bill </span></a></li>
+                  <li><a href="{{ route('product') }}"><i class="fa fa-desktop"></i> Product </span></a></li>
+                  <li><a  href="{{ route('report') }}"><i class="fa fa-flag"></i> Report </span></a>
+                  <li><a  href="{{ route('user') }}"><i class="fa fa-male"></i> User </span></a>
                   </li>
-                  <li><a><i class="fa fa-bar-chart-o"></i>Acount </span></a>
+                  <li><a href="{{ route('admin-acount') }}" ><i class="fa fa-user"></i>Acount </span></a>
                   </li>
                 </ul>
               </div>

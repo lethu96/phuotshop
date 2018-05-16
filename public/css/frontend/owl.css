@@ -1,0 +1,129 @@
+/*
+ * Theme Name: Construct - Construction Company, Building Company Template
+ * Version: 1.1
+ * Description: Template built for Construction Company, repairing Services, Architecture, Engineering, Cleaning Service and other Construction related services.
+ * Author: clawthemes
+ * Author URI: https://themeforest.net/user/clawthemes
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,300,400,400i,500,700|Montserrat:300,400,500,600,700');
+
+@import "bootstrap.min.css";
+
+@import "owl.carousel.css";
+
+@import "shortcodes.css";
+
+
+/**
+ * Reset Browsers
+ * General
+ * Elements
+ * Forms
+ * Typography
+ * Extra classes
+ * Layout
+ * Top Bar
+ * Header
+ * Featured Title
+ * Blog Post
+ * Blog Single
+ * Side Bar 
+ * Footer
+ * Bootom
+ * Revolution Slider
+ * Scroll Top
+ * Media Queries
+ **/
+
+/* Reset Browsers
+-------------------------------------------------------------- */
+
+/* Revolution Slider
+-------------------------------------------------------------- */
+.rev_slider_wrapper ul { margin: 0; }
+.tparrows.custom { background-color: rgba(0,0,0,0.1); width: 60px; height: 80px; -webkit-transition: background .238s; transition: background .238s; }
+.tparrows.custom:hover { background-color: #f8c12c; }
+.custom.tparrows.tp-leftarrow:before,
+.custom.tparrows.tp-rightarrow:before { content: ""; font-size: 32px; line-height: 80px; font-family: "FontAwesome"; position: absolute; left: 0; top: 0; text-indent: 0; width: 100%; height: 100%; }
+.custom.tparrows.tp-leftarrow:before { content: "\f104"; }
+.custom.tparrows.tp-rightarrow:before { content: "\f105"; }
+
+/* Hero Slideshow
+-------------------------------------------------------------- */
+#hero-section { position: relative; }
+#hero-section .hero-content { position: relative; z-index: 20; text-align: center; }
+#hero-section .hero-title { overflow: hidden; height: 80px; vertical-align: baseline; }
+#hero-section .hero-title h1 { font-size: 80px; color: #fff; height: 80px; line-height: 80px; margin: 0; font-weight: bold; text-shadow: 1px 1px 3px rgba(0,0,0,.3); -webkit-transition: margin-top 0.4s ease-in-out; -moz-transition: margin-top 0.4s ease-in-out; transition: margin-top 0.4s ease-in-out; }
+#hero-section .typed-cursor{ opacity: 1; -webkit-animation: blink 0.7s infinite; -moz-animation: blink 0.7s infinite; animation: blink 0.7s infinite; }
+@keyframes blink { 0% { opacity:1; } 50% { opacity:0; } 100% { opacity:1; } }
+@-webkit-keyframes blink { 0% { opacity:1; } 50% { opacity:0; } 100% { opacity:1; } }
+@-moz-keyframes blink { 0% { opacity:1; } 50% { opacity:0; } 100% { opacity:1; } }
+#hero-section .hero-text { font-size: 20px; width: 100%; color: #fff; 	margin: 10px 0 40px; text-shadow: 1px 1px 3px rgba(0,0,0,.3); }
+#hero-section .hero-text > p { padding: 0 15px; max-width: 600px; margin: 0 auto; }
+#hero-section .arrow { position: absolute; bottom: 10px; left: 50%; margin-left: -20px; width: 40px; height: 40px; z-index: 999; animation: bounce 2.5s infinite; -webkit-animation: bounce 2.5s infinite; -moz-animation: bounce 2.5s infinite; }
+#hero-section .arrow:after { content: "\f107"; font-family: "FontAwesome"; font-size: 24px; color: #fff; position: absolute; left: 0; top: 0; width: 100%; height: 40px; line-height: 40px; text-align: center; }
+#hero-section .arrow:hover:after { color: #ffbc13; }
+#hero-section .arrow-2 { display: inline-block; width: 50px; height: 150px; font-size: 34px; animation: bounce 2.5s infinite; -webkit-animation: bounce 2.5s infinite; -moz-animation: bounce 2.5s infinite; }
+#hero-section .arrow-2:hover,
+#hero-section .arrow-2:focus { color: #fff; }
+
+/* Scroll Top
+-------------------------------------------------------------- */
+#scroll-top { position: fixed !important; right: 25px; bottom: -50px; display: block; line-height: 38px; text-align: center; width: 40px; height: 40px; visibility: hidden; opacity: 0; z-index: 9999; cursor: pointer; z-index: 1; overflow: hidden; }
+#scroll-top:after { content: "\f106"; font-family: "FontAwesome"; color: #fff; font-size: 20px; position: absolute; left: 0; top: 0; width: 100%; -webkit-transition: all ease .238s; -moz-transition: all ease .238s; transition: all ease .238s; }
+#scroll-top:before { border-radius: 3px; content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color: #ffbc13; z-index: -1; -webkit-transition: all ease .238s; -moz-transition: all ease .238s; transition: all ease .238s; }
+#scroll-top:hover:before { background-color: #585252; }
+#scroll-top:hover:after { color: #fff; }
+#scroll-top.show { bottom: 18px; filter: alpha(opacity=100); opacity: 1; visibility: visible; }
+
+/* Media Queries
+-------------------------------------------------------------- */
+@media only screen and (min-width: 1200px) {
+	.container { width: 1200px; }
+}
+
+@media only screen and (max-width: 991px) {
+	#top-bar,
+	#main-nav,
+	#site-header #header-search,
+	#sidebar { display: none; }
+
+	#site-header .mobile-button { display: block; }
+	#site-header #site-header-inner { padding-top: 20px; padding-bottom: 20px; }
+
+	#site-content,
+	#sidebar { width: 100% !important; max-width: none !important; float: none; }
+	#inner-content { padding-left: 0 !important; padding-right: 0 !important; }
+
+	#featured-title { padding: 40px 0; }
+	#featured-title .featured-title-heading { font-size: 30px; }
+
+	#main-content { padding: 60px 0; }
+
+	.font-size-70 { font-size: 40px !important; }
+}
+
+@media only screen and (max-width: 767px) {
+	#featured-title .featured-title-inner-wrap,
+	#featured-title .featured-title-heading-wrap,
+	#featured-title #breadcrumbs { display: block; width: 100%; text-align: left; }
+
+	.hentry .post-read-more a { margin-bottom: 10px; }
+
+	.hentry .post-author { text-align: center; }
+	.author-post .thumb { width: 70px; }
+	.hentry .post-author .author-avatar { float: none; margin: 0 auto 20px; }
+	#comments ol li ul li .comment-wrap { margin-left: 70px; }
+	#comments ol li .gravatar { width: 50px; float: none; margin: 0 0 17px; }
+	.comment-form .name-wrap, .comment-form .email-wrap { width: 100%; float: none; margin: 0; }
+
+	#footer { padding: 50px 0; }
+	#footer-widgets .col .widget:last-child { margin-bottom: 40px; }
+	#footer-widgets .col:last-child .widget:last-child { margin-bottom: 0px; }
+	#footer-widgets .wprt-row .col { width: 100%; }
+	#footer .form-control-wrap.your-name,
+	#footer .form-control-wrap.your-email { float: none; width: 100%; margin: 0; }
+
+	.text-center-mobi { text-align: center !important; }
+}

@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('address');
             $table->date('birthday');
             $table->string('gender');
-            $table->integer('status');
+            $table->integer('status')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

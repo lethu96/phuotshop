@@ -22,13 +22,13 @@
 <link rel="stylesheet" href="{{asset('css/frontend/jquery.fancybox.css')}}">
 <link rel="stylesheet" href="{{asset('css/frontend/meanmenu.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/frontend/nivo-slider.css')}}">
-<link rel="stylesheet" href="{{asset('css/frontend/owl.carousel.css')}}">
 <link rel="stylesheet" href="{{asset('css/frontend/style.css')}}">
 <link rel="stylesheet" href="{{asset('css/frontend/responsive.css')}}">
 <!-- modernizr css -->
 <script src="{{asset('js/frontend/modernizr-2.8.3.min.js')}}"></script>
 <script src="{{asset('js/frontend/jquery-1.12.0.min.js')}}"></script>
 <style type="text/css">
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,900,700);
     .btn-search {
       border-radius: 0;
       color: #fff;

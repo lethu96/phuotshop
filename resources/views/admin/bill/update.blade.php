@@ -20,27 +20,24 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{url('/sale/update')}}" method="POST">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{url('/bill/update')}}" method="POST">
                         {{csrf_field()}}
                         <input type="hidden" name="id" value="{{$id}}" >
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Code <span class="required">*</span>
+                        <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Đơn hàng <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="name"  name="code" required="required" class="form-control col-md-7 col-xs-12" value="{{$data['code']}}">
+                           <label> {{$id}}</label>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name"> Type <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Trạng thái <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="last-name" name="type" required="required" class="form-control col-md-7 col-xs-12" value="{{$data['type']}}">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Status</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="status" value="{{$data['status']}}">
+                          <select name="status">
+                            <option value="0"> Chưa hoàn thành</option>
+                            <option value="1"> Đã hoàn thành</option>
+                          </select>
                         </div>
                       </div>
                       <div class="ln_solid"></div>

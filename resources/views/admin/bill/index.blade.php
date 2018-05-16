@@ -41,41 +41,25 @@
                               </div>
                               <div class="x_content">
                                 <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="dataTables_length" id="datatable_length">
-                                                <label>Show 
-                                                    <select name="datatable_length" aria-controls="datatable" class="form-control input-sm">
-                                                        <option value="10">10</option>
-                                                        <option value="25">25</option>
-                                                        <option value="50">50</option>
-                                                        <option value="100">100</option>
-                                                    </select> 
-                                                entries</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div id="datatable_filter" class="dataTables_filter">
-                                                <label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable">
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
+                             
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
                                   <thead>
                                     <tr role="row">
-                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 157px;">User
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 100px;">Mã đơn hàng
                                         </th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 100px;">Name Customer
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 100px;">Tên khách hàng
                                         </th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 250px;">Address Customer</th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 117px;">Phone Customer</th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 117px;">Amout</th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 117px;">Status</th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 60px;">Note
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 250px;">Địa chỉ </th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 117px;">Số điện thoại </th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 117px;">Số sản phẩm</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 117px;">Tổng tiền</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 117px;">Hình thức thanh toán</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 117px;">Trạng thái đơn hàng </th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 60px;">Ghi chú
                                         </th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 60px;">Hành động</th>
                                     </tr>
                                   </thead>
 
@@ -83,13 +67,22 @@
                                   <tbody>
                                     @foreach($data as $item)
                                         <tr>
-                                            <td>{{$item['user_id']}}</td>
+                                            <td>{{$item['id']}}</td>
                                             <td>{{$item['name_customer']}}</td>
                                             <td>{{$item['address_customer']}}</td>
                                             <td>{{$item['phone_customer']}}</td>
                                             <td>{{$item['amount']}}</td>
-                                            <td>{{$item['status']}}</td>
+                                            <td>{{$item['total']}}</td>
+                                            <td>{{$item['type']}}</td>
+                                            <td> @if($item['status']==0)  Chưa thanh toán
+                                                @else  Đã thanh toán
+                                                @endif
+                                            </td>
+                                            <td>{{$item['note']}}</td>
                                             <td>
+                                                <a href="{{asset('/bill/update/').'/'.$item['id']}}" class="btn btn-primary ">
+                                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                </a>
                                                 <a href="{{asset('/bill/destroy/').'/'.$item['id']}}" class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa không??')">
                                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                 </a>
@@ -100,42 +93,7 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
-                                    <ul class="pagination">
-                                        <li class="paginate_button previous disabled" id="datatable_previous">
-                                            <a href="#" aria-controls="datatable" data-dt-idx="0" tabindex="0">Previous
-                                            </a>
-                                        </li>
-                                        <li class="paginate_button active">
-                                            <a href="#" aria-controls="datatable" data-dt-idx="1" tabindex="0">1
-                                            </a>
-                                        </li>
-                                        <li class="paginate_button ">
-                                            <a href="#" aria-controls="datatable" data-dt-idx="2" tabindex="0">2
-                                            </a>
-                                        </li>
-                                        <li class="paginate_button ">
-                                            <a href="#" aria-controls="datatable" data-dt-idx="3" tabindex="0">3
-                                            </a>
-                                        </li>
-                                        <li class="paginate_button ">
-                                            <a href="#" aria-controls="datatable" data-dt-idx="4" tabindex="0">4
-                                            </a>
-                                        </li>
-                                        <li class="paginate_button "><a href="#" aria-controls="datatable" data-dt-idx="5" tabindex="0">5
-                                        </a>
-                                    </li>
-                                    <li class="paginate_button "><a href="#" aria-controls="datatable" data-dt-idx="6" tabindex="0">6</a>
-                                    </li>
-                                    <li class="paginate_button next" id="datatable_next">
-                                        <a href="#" aria-controls="datatable" data-dt-idx="7" tabindex="0">Next
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

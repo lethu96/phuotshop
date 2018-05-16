@@ -8,6 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-4 col-xs-8">
+
                     <div class="header-logo">
                         <a href="">
                             <img src="{{asset('img/logo/logo.png')}}" alt="" />
@@ -23,11 +24,25 @@
                     </div>
                 </div>
                 <div class="col-sm-8">
+                    <div >
+                        <ul>
+                    @if (Auth::guest())
+
+                    <li><a href="{{ route('register') }}" style="float: right; color: white;align-items: center;height: 3.4rem;font-size: 1.3rem;">Đăng Kí</a></li>
+                    <li><a href="{{ route('login') }}" style="float: right; color: white;align-items: center;height: 3.4rem;font-size: 1.3rem; margin-right: 2%  ">Đăng Nhập</a></li>
+                    @else
+                    <li><a href="{{ route('logout') }}" style="float: right; color: white;align-items: center;height: 3.4rem;font-size: 1.3rem; ">Đăng Xuất</a></li>
+                    <li> <a href="{{ route('user-acount') }}" style="float: right; color: white;align-items: center;height: 3.4rem;font-size: 2.3rem; margin-right: 2%  "><i class="fa fa-user"></i></a></li>
+                    
+
+                    @endif
+                   </ul>
+                </div>
                     <div class="main-menu">
                         <nav>
                             <ul>
                                 <li class="expand">
-                                    <a href="{{asset('/phuotshop')}}">
+                                    <a href="{{asset('/')}}">
                                         <span class="menu-label">Trang Chủ</span>
                                     </a>
                                 </li>

@@ -20,8 +20,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style type="text/css">
-        
-        #login {
+
+#login {
     margin: 50px auto;
     width: 400px;
 }
@@ -64,8 +64,6 @@
 }
 
 #login fieldset input[type="email"], #login fieldset input[type="password"] {
-    background-color: #eee;
-    color: #777;
     padding: 4px 10px;
     width: 328px;
 }
@@ -81,11 +79,75 @@
 
 #login fieldset input[type="submit"]:hover {
     background-color: #28ad63;
+}      
+#register {
+    width: 40%;
+    margin: 50px auto;
 }
 
-    </style>
+#register h2 {
+    background-color: #f95252;
+    -webkit-border-radius: 20px 20px 0 0;
+    -moz-border-radius: 20px 20px 0 0;
+    border-radius: 20px 20px 0 0;
+    color: #fff;
+    font-size: 28px;
+    padding: 20px 26px;
+}
+
+#register h2 span[class*="fontawesome-"] {
+    margin-right: 14px;
+}
+
+#register fieldset {
+    background-color: #fff;
+    -webkit-border-radius: 0 0 20px 20px;
+    -moz-border-radius: 0 0 20px 20px;
+    border-radius: 0 0 20px 20px;
+    padding: 20px 26px;
+}
+
+#register fieldset p {
+    padding-bottom: 10px;
+    color: #777;
+    margin-bottom: 14px;
+}
+
+#register fieldset p:last-child {
+    margin-bottom: 0;
+}
+
+#register fieldset input {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#register fieldset input[type="email"], #register fieldset input[type="password"] {
+    padding: 4px 10px;
+}
+
+#register fieldset input[type="submit"] {
+    background-color: #33cc77;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+    padding: 4px 0;
+    width: 100px;
+}
+
+#register fieldset input[type="submit"]:hover {
+    background-color: #28ad63;
+}
+.invalid-feedback{
+    color: red;
+}
+#register label {
+        margin-bottom: 15px !important; 
+}
+</style>
 </head>
-<body background="white">
+<body style="background-color:#fdf9fa">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">

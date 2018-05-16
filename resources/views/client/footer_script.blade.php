@@ -26,3 +26,4 @@
 <script src="{{asset('js/frontend/plugins.js')}}"></script>
 <!-- main js -->
 <script src="{{asset('js/frontend/main.js')}}"></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>

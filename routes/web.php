@@ -14,8 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
 Auth::routes();
+Route::get('logout', ['as' => 'logout', function () {
+    Session::forget('access_token');
+    Auth::logout();
+    Session::flush();
+    return Redirect::to('/login')->with('flash_notice', 'You have successfully logged out!');
+}]);
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/typeproduct','TypeProductController@index')->name('typeproduct');
@@ -38,13 +44,12 @@ Route::get('/user/update/{id}','UserController@show');
 Route::post('/user/update','UserController@update')->name('userupdate');
 Route::get('/user/create','UserController@getStore');
 Route::post('/user/create','UserController@store');
+Route::get('user-acount','UserController@detail')->name('user-acount');
+Route::get('admin-acount', function(){
+		return view('user.myacount');
+	})->name('admin-acount');
 
-Route::get('/sale','SaleController@index')->name('sale');
-Route::get('/sale/destroy/{id}','SaleController@destroy');
-Route::get('/sale/update/{id}','SaleController@show');
-Route::post('/sale/update','SaleController@update')->name('saleupdate');
-Route::get('/sale/create','SaleController@getStore');
-Route::post('/sale/create','SaleController@store');
+
 
 Route::get('/size','SizeController@index')->name('size');
 Route::get('/size/destroy/{id}','SizeController@destroy');
@@ -74,10 +79,8 @@ Route::post('/bill/update', 'BillController@update')->name('billupdate');
 Route::get('bill/create', 'BillController@getStore');
 Route::post('/bill/create', 'BillController@store');
 
-Route::get('/comment', 'CommentController@index')->name('comment');
-Route::get('/comment/destroy/{id}', 'CommnetController@destroy');
 
-Route::get('/phuotshop', 'PagesController@showHome');
+Route::get('/', 'PagesController@showHome');
 Route::get('/topproduct', 'ProductController@productTop');
 Route::get('product/detail/{id}', 'PagesController@showDetail');
 Route::get('/typeproduct/{id}', 'PagesController@typeProduct');
@@ -94,8 +97,16 @@ Route::get('gio-hang/xoa', ['as' => 'getempty', 'uses' => 'PagesController@xoa']
 Route::get('dat-hang', ['as' => 'getoder', 'uses' => 'PagesController@getoder']);
 Route::post('dat-hang', ['as' => 'postoder', 'uses' => 'PagesController@postoder']);
 Route::get('contact', 'PagesController@contact');
-Route::get('/logout','HomeController@logout')->name('logout');
 Route::resource('payment', 'PayMentController');
 Route::get('test', 'PagesController@showProductSale');
 Route::post('search', 'PagesController@search');
 Route::get('/chart',['as'=>'admin-chart','uses'=>'ReportController@chart']);
+Route::get('customer',['as'=>'customer','uses'=>'UserController@listcustomer']);
+Route::get('list-sale','PagesController@listsale');
+
+
+Route::get('/test', function () {
+    return view('form');
+});
+
+Route::post('/message/send', ['uses' => 'FrontController@addFeedback', 'as' => 'front.fb']);
