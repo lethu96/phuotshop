@@ -10,6 +10,7 @@ use App\Category;
 use App\Bill;
 use App\BillDetail;
 use DB,Cart,Datetime;
+use App\Feedback;
 
 class PagesController extends Controller
 {
@@ -18,6 +19,28 @@ class PagesController extends Controller
     {
       $cate=TypeProduct::all()->toArray();
       return view('client.contact',['cate' => $cate]);
+    }
+
+    public function feedback(Request $request)
+    {
+      $data = $request->all();
+      $feedback = new Feedback();
+      $feedback->email = $data['email'];
+      $feedback->name = $data['name'];
+      $feedback->feedback = $data['feedback'];
+      if($data['name']== null ||$data['feedback']==null ||$data['email']==null )
+      {
+        echo "<script>
+        alert('Bạn phải nhập đầy đủ thông tin ');
+        window.location.href='/contact';
+        </script>";
+      }
+      $feedback->save();
+      echo "<script>
+        alert('Cảm ơn bạn  đã góp ý cho chúng tôi. ');
+        window.location.href='/contact';
+        </script>";
+
     }
     public function listsale(){
       $sale= Product::where('sale','!=','null')->get()->toArray();
@@ -57,15 +80,19 @@ class PagesController extends Controller
                            ->get()                             
                            ->toArray();
         $sale= Product::where('sale','!=','null')->paginate(4);
-        $data1=Product::where('type_id', '=', 1)->paginate(4);
-        $data2=Product::where('type_id', '=', 2)->paginate(4);
+        $data1=Product::where('type_id', '=', 2)->paginate(4);
         $data3=Product::where('type_id', '=', 4)->paginate(4);
-        return view('client.index',['new' => $new ,'last' =>$last, 'view' => $view ,'data1' => $data1, 'data2' => $data2,'data3' => $data3,'cate' => $cate, 'sale' => $sale]);
+        return view('client.index',['new' => $new ,'last' =>$last, 'view' => $view ,'data1' => $data1,'data3' => $data3,'cate' => $cate, 'sale' => $sale]);
     }
 
     public function showDetail($id)
     {
-        $product = Product::find($id)->toArray();
+      $product = Product::find($id)->toArray();
+        $products= DB::table('products')
+        ->join('size','size.id','=','products.size_id')
+        ->join('color','color.id', '=', 'products.color_id')
+        ->selectRaw("products.*,size.id ,color.id ,size.name as sizename,color.name as colorname")
+        ->where('products.id',$id)->get()->toArray();
         $cate = TypeProduct::all()->toArray();
                 $new = DB::table('products')->orderBy('id', 'desc')
                            ->limit(5)                           
@@ -79,12 +106,13 @@ class PagesController extends Controller
                            ->limit(5)                           
                            ->get()                             
                            ->toArray();
-        return view('product.detail',['product' => $product, 'new' => $new ,'last' =>$last, 'view' => $view, 'cate' => $cate]);
+
+        return view('product.detail',['products' => $products,'product'=>$product ,'new' => $new ,'last' =>$last, 'view' => $view, 'cate' => $cate]);
     }
 
         public function typeProduct($id)
     {
-        $type = Product::where('type_id', '=', $id)->paginate(4);
+        $type = Product::where('type_id', '=', $id)->paginate(12);
         $cate = TypeProduct::all()->toArray();
                 $new = DB::table('products')->orderBy('id', 'desc')
                            ->limit(5)                           
@@ -108,9 +136,35 @@ class PagesController extends Controller
         if ($pro->sale== null) {
           $realProduct= $pro->price;
         }
+
         $realProduct= (100-$pro->sale)*($pro->price/100);
         Cart::add(['id' => $pro->id, 'name' => $pro->name, 'qty' => 1, 'price' => $realProduct,'options' => ['img' => $pro->image]]);
         return redirect()->back();
+    }
+
+    public function addtocart(Request $request)
+    {
+        $data= $request->all();
+        $pro=Product::where('id',$data['id'])->first();
+        if($data['number'] > $pro->qty)
+        {
+        echo "<script>
+        alert('Bạn phải nhập đầy đủ thông tin ');
+        </script>";
+        //window.location
+        return redirect()->back();
+         
+        } else {
+          $realProduct=0;
+        if ($pro->sale== null) {
+          $realProduct= $pro->price;
+        }
+
+        $realProduct= (100-$pro->sale)*($pro->price/100);
+      Cart::add(['id' => $pro->id, 'name' => $pro->name, 'qty' => $data['number'], 'price' => $realProduct,'options' => ['img' => $pro->image]]);
+        return redirect()->back();
+
+        }   
     }
 
     public function getupdatecart($id,$qty,$dk)
@@ -186,12 +240,49 @@ class PagesController extends Controller
            $detail->created_at = new datetime;
            $detail->save();
         }
+        
 
         Cart::destroy();
         return redirect()->route('getcart')
-        ->with(['cate' => $cate,'flash_level'=>'result_msg','flash_massage'=>' Đơn hàng của bạn đã được gửi đi !']);
+        ->with(['cate' => $cate,'flash_level'=>'result_msg','flash_massage'=>' Đơn hàng của bạn đã được xác nhận !']);
         
     }
+    public function payment(Request $rq)
+    {
+
+        $cate=TypeProduct::all()->toArray();
+        $oder = new Bill();
+        $total =0;
+        foreach (Cart::content() as $row) {
+            $total = $total + ( $row->qty * $row->price);
+        }
+        $oder->user_id = Auth::user()->id;
+        $oder->name_customer = Auth::user()->name;
+        $oder->address_customer = Auth::user()->address;
+        $oder->phone_customer =  Auth::user()->phone;
+        $oder->amount = Cart::count();
+        $oder->total =  floatval($total);
+        $oder->note = $rq->txtnote;
+        $oder->type = 'shop';
+        $oder->created_at = new datetime;
+        $oder->save();
+        $detailId =$oder->id;
+
+        foreach (Cart::content() as $row) {
+           $detail = new BillDetail();
+           $detail->product_id = $row->id;
+           $detail->qty = $row->qty;
+           $detail->bill_id = $detailId;
+           $detail->created_at = new datetime;
+           $detail->save();
+        }
+
+        Cart::destroy();
+        return redirect()->route('getcart')
+        ->with(['cate' => $cate,'flash_level'=>'result_msg','flash_massage'=>' Đơn hàng của bạn đã được xác nhận !']);
+        
+    }
+
 
     public function search(Request $request)
     {
@@ -215,6 +306,6 @@ class PagesController extends Controller
                            ->limit(5)                           
                            ->get()                             
                            ->toArray();
-    return view('client.search')->with(['results' =>  $results, 'cate' => $cate,'last' => $last , 'view' => $view,'new' =>$new]);  
+    return view('client.search')->with(['results' =>  $results, 'cate' => $cate,'last' => $last , 'view' => $view,'new' =>$new,'keyword'=>$keyWord]);  
     }
 }

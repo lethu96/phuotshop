@@ -3,8 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Auth;
-class CheckLevel
+use Illuminate\Support\Facades\Auth;
+
+class CheckLevelMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,12 +16,13 @@ class CheckLevel
      */
     public function handle($request, Closure $next)
     {
-       if(Auth::check()&&Auth::users()->status > 0)
-        {
-            return $next($request);
+        if(Auth::check()&&Auth::user()->status==1){
+            
+            return redirect('/home');
+
         }else{
             return redirect('/');
+            
         }
-
     }
 }

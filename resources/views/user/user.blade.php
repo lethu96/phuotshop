@@ -4,6 +4,7 @@
     <hr>
     <div class="my-account-section__header-title">Hồ Sơ Của Tôi </div>
     <div class="my-account-section__header-subtitle">Quản lý thông tin hồ sơ để bảo mật tài khoản</div>
+    <div> <a href="{{url('user-change-password')}}" style="color: #00BFF3;">Đổi mật khẩu</a> </div>
     <div class="my-account-profile__left">
         <div class="input-with-label">
             <div class="input-with-label__wrapper">
@@ -100,7 +101,7 @@
         <div class="my-account-section__header-title">Lịch sử mua hàng </div>
         <div >
                 <table class="table table-bordered table-hover text-center">
-                    <thead>
+                    <thead style="background-color: #F0F0F0;font-weight: bold;">
                             <th> ID</th>                                        
                             <th> Mã đơn hàng</th>  
                             <th> sản phẩm </th>
@@ -138,5 +139,4 @@
             </div>
     </div>
 </div>
-
 @endsection

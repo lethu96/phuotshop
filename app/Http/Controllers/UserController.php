@@ -9,6 +9,8 @@ use Auth;
 use App\TypeProduct;
 use App\BillDetail;
 use DB;
+use Validator;
+use Hash;
 
 class UserController extends Controller
 {
@@ -46,7 +48,6 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        dd($data);
         $user = new User();
         $user->name = $data['name'];
         $user->email = $data['email'];
@@ -88,6 +89,108 @@ class UserController extends Controller
         ->where('users.id',$id)->get()->toArray();
          $cate = TypeProduct::all()->toArray();
         return view('user.user',['data' =>$data,'cate' => $cate]);
+    }
+
+    public function getchangePass()
+    {
+        $cate = TypeProduct::all()->toArray();
+        return view('user.changepass',['cate' => $cate]);
+    }
+
+    public function admin_credential_rules(array $data)
+    {
+      $messages = [
+        'current-password.required' => 'Please enter current password',
+        'password.required' => 'Please enter password',
+      ];
+
+      $validator = Validator::make($data, [
+        'current-password' => 'required',
+        'password' => 'required|same:password',
+        'password_confirmation' => 'required|same:password',     
+      ], $messages);
+
+      return $validator;
+    } 
+
+    public function changepass(Request $request)
+    {
+      if(Auth::Check())
+      {
+        $request_data = $request->All();
+        $validator = $this->admin_credential_rules($request_data);
+        if($validator->fails())
+        {
+            $errors=$validator->getMessageBag()->toArray();
+           return redirect()->back()->withErrors($errors)->withInput();
+        }
+        else
+        {  
+
+          $current_password = Auth::User()->password;           
+          if(Hash::check($request_data['current-password'], $current_password))
+          {     
+
+            $user_id = Auth::User()->id;                       
+            $obj_user = User::find($user_id);
+            $obj_user->password = Hash::make($request_data['password']);;
+            $obj_user->save(); 
+
+            echo "<script>
+            alert('Đổi Mật khẩu thành công');
+            window.location.href='/user-acount';
+            </script>";
+          }
+          else{
+                $errors = array('current-password' => 'Please enter correct current password');
+               return redirect()->back()->withErrors($errors)->withInput(); 
+          }
+        }        
+      }
+      else
+      {
+        return redirect()->to('/');
+      }    
+    }
+
+    public function adminchangepass(Request $request)
+    {
+      if(Auth::Check())
+      {
+        $request_data = $request->All();
+        $validator = $this->admin_credential_rules($request_data);
+        if($validator->fails())
+        {
+            $errors=$validator->getMessageBag()->toArray();
+           return redirect()->back()->withErrors($errors)->withInput();
+        }
+        else
+        {  
+
+          $current_password = Auth::User()->password;           
+          if(Hash::check($request_data['current-password'], $current_password))
+          {     
+
+            $user_id = Auth::User()->id;                       
+            $obj_user = User::find($user_id);
+            $obj_user->password = Hash::make($request_data['password']);;
+            $obj_user->save(); 
+
+            echo "<script>
+            alert('Đổi Mật khẩu thành công');
+            window.location.href='/admin-acount';
+            </script>";
+          }
+          else{
+                $errors = array('current-password' => 'Please enter correct current password');
+               return redirect()->back()->withErrors($errors)->withInput(); 
+          }
+        }        
+      }
+      else
+      {
+        return redirect()->to('/home');
+      }    
     }
 
 }

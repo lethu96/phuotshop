@@ -29,7 +29,7 @@
                 <ul role="tablist" class="tab-nav-menu">
                     <li class="first-item active" role="presentation"><a data-toggle="tab" role="tab" aria-controls="new" href="#new" aria-expanded="false">New</a></li>
                     <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="latest" href="#latest" aria-expanded="true">Latest</a></li>
-                    <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="viewed" href="#viewed">viewed</a></li>
+                    
                 </ul>
             </div>
             <div class="widget-tab-content tab-content">
@@ -64,19 +64,6 @@
                     </ul>
                 </div>
                 <div id="viewed" class="tab-pane fade in" role="tabpanel">
-                    <ul class="product-list-widget">
-                        @foreach($view as $item)
-                         <li>
-                                <a href="" class="thumbnail">
-                                    <img src="/img/{{ $item->image }}" alt="" href="{{asset('/product/detail/').'/'.$item->id}}">
-                                </a>
-                                <div class="content">
-                                    <a href="{{asset('/product/detail/').'/'.$item->id}}">{{$item->name}}</a>
-                                    <span class="amount"> {{number_format($item->price)}}</span>
-                                </div>
-                            </li>
-                        @endforeach
-                    </ul>
                 </div>
             </div>
         </div>
@@ -92,51 +79,65 @@
         </div>
         <div class="modal-body">
             <div class="modal-product">
-                <div class="product-images">
-                    <div class="main-image images">
-                        <img alt="" id="img_view" src="/img/{{$product['image']}}" >
+                <form method="POST" action="{{url('gio-hang/addtocart')}}" >
+                    {{csrf_field()}}
+                     <input type="hidden" name="id" value="{{$product['id']}}" >
+                    <div class="product-images">
+                        <div class="main-image images">
+                            <img alt="" id="img_view" src="/img/{{$product['image']}}" >
+                        </div>
                     </div>
-                </div>
-                <div class="product-info">
-                    <h1 id="title_view" style="color:blue">{{$product['name']}}</h1>
-                    <div class="price-box">
-                        <p class="price"><span class="special-price"><span class="amount" id="price_view" style="color:red">{{number_format($product['price'])}}  VND</span></span></p>
-                    </div>
-                    <div class="price-box">
-                        <font style="font-weight: bold;">Thuế VAT</font> : <span style="color:red">Giá Trên chưa bao gồm thuế VAT</span>
-                    </div>
-                    <div class="price-box">
-                        <font style="font-weight: bold;">Bảo Hành</font> : <span>12 Tháng</span>
-                    </div>
-                    <div class="price-box">
-                        <font style="font-weight: bold;">Thời gian vận chuyển</font> : <span>7 ngày sau khi đặt hàng</span>
-                    </div>
-                    
-                    <div class="quick-add-to-cart">
+                    <div class="product-info">
+                        <h1 id="title_view" style="color:blue">{{$product['name']}}</h1>
                         <div class="price-box">
-                            <font style="font-weight: bold;">Đổi trả trong vòng </font>  : 72 giờ
+                            <p class="price"><span class="special-price"><span class="amount" id="price_view" style="color:red">{{number_format($product['price'])}}  VND</span></span></p>
                         </div>
-                        <div class="numbers-row">
-                            <input type="number" name="number"  id="number" value="1" min="1" max="100">
+                        <div class="price-box">
+                            <font style="font-weight: bold;">Thuế VAT</font> : <span style="color:red">Giá Trên chưa bao gồm thuế VAT</span>
                         </div>
-                        <button class="single_add_to_cart_button Addcart" data-id="{{$product['id']}}" type="button"><a href="{!!url('gio-hang/addcart/'.$item->id)!!}> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Thêm vào giỏ hàng </a></button>
-                    </div>
-                    <div class="quick-desc" id="content_view">
-                        {{$product['title']}}
-                    </div>
-                    <div class="social-sharing">
-                        <div class="widget widget_socialsharing_widget">
-                            <h3 class="widget-title-modal">Share this product</h3>
-                            <ul class="social-icons">
-                                <li><a target="_blank" title="Facebook" href="#" class="facebook social-icon"><i class="fa fa-facebook"></i></a></li>
-                                <li><a target="_blank" title="Twitter" href="#" class="twitter social-icon"><i class="fa fa-twitter"></i></a></li>
-                                <li><a target="_blank" title="Pinterest" href="#" class="pinterest social-icon"><i class="fa fa-pinterest"></i></a></li>
-                                <li><a target="_blank" title="Google +" href="#" class="gplus social-icon"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a target="_blank" title="LinkedIn" href="#" class="linkedin social-icon"><i class="fa fa-linkedin"></i></a></li>
-                            </ul>
+                        <div class="price-box">
+                            <font style="font-weight: bold;">Bảo Hành</font> : <span>12 Tháng</span>
+                        </div>
+                        <div class="price-box">
+                            <font style="font-weight: bold;">Thời gian vận chuyển</font> : <span>7 ngày sau khi đặt hàng</span>
+                        </div>
+                        <div>
+                            <select name="getcount" style="height: 35px;margin-bottom: 15px">
+                                    @foreach($products as $item)
+                                    <option value="{{$item->id}}">
+                                      Màu: {{$item->colorname}} - Size: {{{$item->sizename}}}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        <div class="quick-add-to-cart">
+                            <div class="price-box">
+                                <font style="font-weight: bold;">Đổi trả trong vòng </font>  : 72 giờ
+                            </div>
+                            <div class="numbers-row">
+                                <input type="number" name="number"  id="number" value="1" min="1" max="100" onclick="this.focus()" >
+                            </div>
+                            
+                            <button class="single_add_to_cart_button Addcart" data-id="{{$product['id']}}" type="submit"></i> Thêm vào giỏ hàng </button>
+                        </div>
+
+                        <div class="quick-desc" id="content_view">
+                            {{$product['title']}}
+                        </div>
+                        <div class="social-sharing">
+                            <div class="widget widget_socialsharing_widget">
+                                <h3 class="widget-title-modal">Share this product</h3>
+                                <ul class="social-icons">
+                                    <li><a target="_blank" title="Facebook" href="#" class="facebook social-icon"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a target="_blank" title="Twitter" href="#" class="twitter social-icon"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a target="_blank" title="Pinterest" href="#" class="pinterest social-icon"><i class="fa fa-pinterest"></i></a></li>
+                                    <li><a target="_blank" title="Google +" href="#" class="gplus social-icon"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a target="_blank" title="LinkedIn" href="#" class="linkedin social-icon"><i class="fa fa-linkedin"></i></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

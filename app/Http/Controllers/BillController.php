@@ -11,15 +11,27 @@ class BillController extends Controller
 {
     public function index()
     {
-        $data=Bill::all()->toArray();
-        dd($data);
+        $data=Bill::paginate(5);
         $result =[]; 
         foreach ($data as  $value) {
             $result=BillDetail::where('bill_id','=',$value['id'])->get()->toArray(); 
              
         }
-         var_dump($result);die();
-        //return view('admin.bill.index',['data'=>$data]);
+//            $data=Bill::all()->toArray();
+
+//         foreach ($data as  $value) {
+//         $products= DB::table('products')
+//         ->join('bill_detail','bill_detail.product_id','=','products.id')
+//         ->join('bill','bill.id', '=', 'bill_detail.bill_id')
+//         ->selectRaw("products.*")
+//         ->where('bill.id',$value['id'])->get()->toArray();
+//     var_dump($products);
+             
+//         }
+        
+// dd()
+
+        return view('admin.bill.index',['data'=>$data]);
     }
 
     public function update(Request $request)

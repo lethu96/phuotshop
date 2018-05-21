@@ -9,7 +9,7 @@ class TypeProductController extends Controller
 {
     public function index()
     {
-        $data=TypeProduct::all()->toArray();
+        $data=TypeProduct::paginate(10);
         return view('admin.typeproduct.typeproduct',['data'=>$data]);
     }
 

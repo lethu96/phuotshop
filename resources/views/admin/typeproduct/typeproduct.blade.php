@@ -42,7 +42,7 @@
                               </div>
                               <div class="x_content">
                                 <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-sm-6">
                                             <div class="dataTables_length" id="datatable_length">
                                                 <label>Show 
@@ -61,7 +61,7 @@
                                                 </label>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
@@ -99,42 +99,8 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
-                                    <ul class="pagination">
-                                        <li class="paginate_button previous disabled" id="datatable_previous">
-                                            <a href="#" aria-controls="datatable" data-dt-idx="0" tabindex="0">Previous
-                                            </a>
-                                        </li>
-                                        <li class="paginate_button active">
-                                            <a href="#" aria-controls="datatable" data-dt-idx="1" tabindex="0">1
-                                            </a>
-                                        </li>
-                                        <li class="paginate_button ">
-                                            <a href="#" aria-controls="datatable" data-dt-idx="2" tabindex="0">2
-                                            </a>
-                                        </li>
-                                        <li class="paginate_button ">
-                                            <a href="#" aria-controls="datatable" data-dt-idx="3" tabindex="0">3
-                                            </a>
-                                        </li>
-                                        <li class="paginate_button ">
-                                            <a href="#" aria-controls="datatable" data-dt-idx="4" tabindex="0">4
-                                            </a>
-                                        </li>
-                                        <li class="paginate_button "><a href="#" aria-controls="datatable" data-dt-idx="5" tabindex="0">5
-                                        </a>
-                                    </li>
-                                    <li class="paginate_button "><a href="#" aria-controls="datatable" data-dt-idx="6" tabindex="0">6</a>
-                                    </li>
-                                    <li class="paginate_button next" id="datatable_next">
-                                        <a href="#" aria-controls="datatable" data-dt-idx="7" tabindex="0">Next
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                           <center> {!!$data->links()!!}</center>
+                        
                     </div>
                 </div>
             </div>

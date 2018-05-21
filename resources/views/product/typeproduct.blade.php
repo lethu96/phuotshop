@@ -14,7 +14,7 @@
                         <div class="product-button-list">
                             
                                 <div class="add-to-cart-list">
-                                    <a class="btn-product btn-cart" href="#">
+                                    <a class="btn-product btn-cart" href="{!!url('gio-hang/addcart/'.$item->id)!!}">
                                         <i aria-hidden="true" class="fa fa-shopping-cart Addcart" data-id="{{$item['id']}}"></i>
                                     </a>
                                 </div>
@@ -33,12 +33,10 @@
                             <i class="fa fa-star-o"></i>
                             <i class="fa fa-star-o"></i>
                         </div>
-                        <a class="heading-title"  href="#" title="{{$item['name']}}">{{$item['name']}}</a>
+                        <a class="heading-title"  href="#" title="{{$item['name']}}" style="height: 36px;">{{$item['name']}}</a>
                         <span class="price">
                             <span class="amount" >{{number_format($item['price'])}} VND</span>
                         </span>
-                        
-                            <button type="button" class="btn btn-danger Addcart" > <a href="{!!url('gio-hang/addcart/'.$item->id)!!}> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Thêm Vào giỏ Hàng </a></button>
                         
                             <a href="{{asset('/product/detail/').'/'.$item['id']}}" title="" class="btn btn-danger">Xem chi tiết</a>
                         

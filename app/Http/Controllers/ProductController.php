@@ -7,12 +7,14 @@ use App\Product;
 use App\TypeProduct;
 use App\Size;
 use App\Color;
+use App\Company;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $data=Product::all()->toArray();
+
+        $data=Product::paginate(5);
         return view('admin.product.index',['data'=>$data]);
     }
 
@@ -39,7 +41,10 @@ class ProductController extends Controller
         $product->color_id = $data['color_id'];
         $product->price = $data['price'];
         $product->qty = $data['qty'];
-        $product->description = $data['description'];
+        if ($data['description']!=null) {
+            $product->description = $data['description'];
+        }
+       
         if ($request->hasFile('image')) 
         {
             $file = $request->image;
@@ -53,9 +58,10 @@ class ProductController extends Controller
     public function getStore(Request $request)
     {
         $typeProduct = TypeProduct::all();
+        $company =Company::all();
         $size = Size::all();
         $color = Color::all();
-        return view('admin.product.create',['typeProduct' => $typeProduct,'size' => $size, 'color' => $color]);
+        return view('admin.product.create',['typeProduct' => $typeProduct,'size' => $size, 'color' => $color,'company' =>$company]);
     }
 
     public function store(Request $request)
@@ -64,6 +70,11 @@ class ProductController extends Controller
         $product = new Product();
         $product->name = $data['name'];
         $product->type_id = $data['type_id'];
+        $product->company_id = $data['company'];
+        if(isset($data['sale']))
+        {
+            $product->sale=$data['sale'];
+        }
         $product->title = $data['title'];
         $product->size_id = $data['size_id'];
         $product->color_id = $data['color_id'];

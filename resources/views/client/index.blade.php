@@ -44,7 +44,7 @@
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
                             </div>
-                            <a class="heading-title"  href="#" title="{{$item['name']}}">{{$item['name']}}</a>
+                            <a class="heading-title"  href="#" title="{{$item['name']}}"  style="height: 36px;">{{$item['name']}}</a>
                             <span class="price">
                                 <span class="amount" > <strike> {{number_format($item['price'])}} </strike></span>
                                 <span class="amount" >{{number_format((100-$item['sale'])*$item['price']/100)}} VND</span>
@@ -63,58 +63,7 @@
 </div>
 </div>
 
-<div class="col-md-12 recoment-header "> GĂNG TAY </div>
-<div class=" row">
-    <div class="product-index">
-        @foreach($data2 as $item1)
-        <div class=" indicator-style category_product">
-            <div class="single-product-inner">
-                <div class="single-product">
-                    <div class="product-thumbnail-wrapper">
-                        <a href="#" class="border-none">
-                            <div class="product-image">
-                                <img alt="" id="" src="/img/{{ $item1['image'] }}" width="170px" height="200px" style="object-fit: cover;">
-                            </div>
-                        </a>
-                        <div class="product-button-list">
-                            
-                                <div class="add-to-cart-list">
-                                    <a class="btn-product btn-cart" href="{!!url('gio-hang/addcart/'.$item1->id)!!}">
-                                        <i aria-hidden="true" class="fa fa-shopping-cart Addcart" data-id="{{$item1['id']}}"></i>
-                                    </a>
-                                </div>
-                            
-                            <div class="product-button-group">
-                                <a class="add-to-compare" href=""><i class="fa fa-info" aria-hidden="true" title="Thông tin chi tiết sản phẩm"></i></a>
-                                <a href="#" title="Quick view" data-toggle="modal" data-content="{{$item1['description']}}" data-id="{{$item1['id']}}" class="btn-quickview view_product" data-target="#productModal"><i class="fa fa-search" aria-hidden="true"></i></a></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-details-content text-center">
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <a class="heading-title"  href="#" title="{{$item1['name']}}">{{$item['name']}}</a>
-                        <span class="price">
-                            <span class="amount" >{{number_format($item['price'])}} VND</span>
-                        </span>
-                        
-                            <a href="{{asset('/product/detail/').'/'.$item1['id']}}" title="" class="btn btn-danger">Xem chi tiết</a>
-                        
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        @endforeach
-            <center> <a href="{{asset('/typeproduct/').'/'.$item1['type_id']}} " style="color: #337ab7;">Xem thêm >></a></center>
-    </div>
-</div>
  <div class="clearfix"></div>
 <div class="col-md-12 recoment-header "> MŨ BẢO HIỂM </div>
  <div class=" row">
@@ -151,7 +100,61 @@
                             <i class="fa fa-star-o"></i>
                             <i class="fa fa-star-o"></i>
                         </div>
-                        <a class="heading-title"  href="#" title="{{$item['name']}}">{{$item['name']}}</a>
+                        <a class="heading-title"  href="#" title="{{$item['name']}}" style="height: 36px;">{{$item['name']}}</a>
+                        <span class="price">
+                            <span class="amount" >{{number_format($item['price'])}} VND</span>
+                        </span>
+                        
+                            <a href="{{asset('/product/detail/').'/'.$item['id']}}" title="" class="btn btn-danger">Xem chi tiết</a>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+            <center> <a href="{{asset('/typeproduct/').'/'.$item['type_id']}} " style="color: #337ab7;">Xem thêm >></a></center>
+    </div>
+</div>
+ <div class="clearfix"></div>
+
+  <div class="clearfix"></div>
+<div class="col-md-12 recoment-header ">Balo Phượt </div>
+ <div class=" row">
+    <div class="product-index">
+       @foreach($data1 as $item)
+        <div class=" indicator-style category_product">
+            <div class="single-product-inner">
+                <div class="single-product">
+                    <div class="product-thumbnail-wrapper">
+                        <a href="#" class="border-none">
+                            <div class="product-image">
+                                <img alt="" id="" src="/img/{{ $item['image'] }}" width="170px" height="200px" style="object-fit: cover;">
+                            </div>
+                        </a>
+                        <div class="product-button-list">
+                            
+                                <div class="add-to-cart-list">
+                                    <a class="btn-product btn-cart" href="{!!url('gio-hang/addcart/'.$item->id)!!}">
+                                        <i aria-hidden="true" class="fa fa-shopping-cart Addcart" data-id="{{$item['id']}}"></i>
+                                    </a>
+                                </div>
+                            
+                            <div class="product-button-group">
+                                <a class="add-to-compare" href=""><i class="fa fa-info" aria-hidden="true" title="Thông tin chi tiết sản phẩm"></i></a>
+                                <a href="#" title="Quick view" data-toggle="modal" data-content="{{$item['description']}}" data-id="{{$item['id']}}" class="btn-quickview view_product" data-target="#productModal"><i class="fa fa-search" aria-hidden="true"></i></a></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-details-content text-center">
+                        <div class="ratting">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <a class="heading-title"  href="#" title="{{$item['name']}}" style="height: 36px;">{{$item['name']}}</a>
                         <span class="price">
                             <span class="amount" >{{number_format($item['price'])}} VND</span>
                         </span>
@@ -198,7 +201,6 @@
                 <ul role="tablist" class="tab-nav-menu">
                     <li class="first-item active" role="presentation"><a data-toggle="tab" role="tab" aria-controls="new" href="#new" aria-expanded="false">New</a></li>
                     <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="latest" href="#latest" aria-expanded="true">Latest</a></li>
-                    <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="viewed" href="#viewed">viewed</a></li>
                 </ul>
             </div>
             <div class="widget-tab-content tab-content">
@@ -233,19 +235,7 @@
                     </ul>
                 </div>
                 <div id="viewed" class="tab-pane fade in" role="tabpanel">
-                    <ul class="product-list-widget">
-                        @foreach($view as $item)
-                         <li>
-                                <a href="" class="thumbnail">
-                                    <img src="/img/{{ $item->image }}" alt="" href="{{asset('/product/detail/').'/'.$item->id}}">
-                                </a>
-                                <div class="content">
-                                    <a href="{{asset('/product/detail/').'/'.$item->id}}">{{$item->name}}</a>
-                                    <span class="amount"> {{number_format($item->price)}}</span>
-                                </div>
-                            </li>
-                        @endforeach
-                    </ul>
+                 
                 </div>
             </div>
         </div>

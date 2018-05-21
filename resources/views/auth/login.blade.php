@@ -31,7 +31,7 @@
                              {{ __('  Login   ') }}
                 </button>
 
-              <a class="btn btn-link" href="{{ route('password.request') }}">
+              <a class="btn btn-link" href="{{ url('/getMail') }}">
                 {{ __('Forgot Your Password?') }}
                 </a>
                 </p>

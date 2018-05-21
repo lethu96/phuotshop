@@ -24,7 +24,9 @@
             <div class="panel-body">
               <div class="table-responsive">
                 <table class="table table-hover">
-                  <thead>
+                  <thead style="    color: #286958;
+    background-color: #F0F0F0;
+    font-weight: bold;">
                     <tr>
                       <th>Hình ảnh</th>
                       <th>Tên sản phẩm</th>
@@ -68,7 +70,7 @@
                   <div class="input-group">
                       <select name="paymethod" id="inputPaymethod" class="form-control" required="required">
                         <option value="cod">COD (thanh toán khi nhận hàng)</option>
-                        <option value="paypal">Paypal (Thanh toán qua Paypal)</option>                      
+                        <option value="shop">Thanh toán tại cửa hàng </option>                      
                       </select>
                     </div>
                   <a class="btn btn-large btn-warning pull-right" href="{!!url('/login')!!}" >Tiến hàng thanh toán</a>
@@ -78,7 +80,7 @@
                     <label for="paymethod">Chọn phương thức thanh toán</label>
                       <select name="paymethod" id="inputPaymethod" class="form-control" required="required">
                         <option value="">Hãy chọn phương thức thanh toán</option> 
-                        <option value="paypal">Thanh toán trực tuyến ( Paypal )</option> 
+                        <option value="shop">Thanh toán Tại cửa hàng</option> 
                         <option value="cod"> Thanh toán khi nhận hàng ( COD )</option>
                       </select>
                     </div>

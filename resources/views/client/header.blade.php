@@ -1,9 +1,5 @@
 
 <header class="header-area header-2 header-8">
-    <div class="header-top">
-        <div class="container">
-        </div>
-    </div>
     <div class="header-middle">
         <div class="container">
             <div class="row">

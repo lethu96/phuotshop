@@ -41,6 +41,17 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name"> Type <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <select name="company"   class="sign-up-input">
+                            @foreach($company as $item)
+                                <option value="{{ $item['id'] }}" >{{ $item['name'] }}</option>
+                            @endforeach
+                            </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Title <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -51,12 +62,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Description <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="description"  name="description" required="required" class="form-control col-md-7 col-xs-12" >
+                          <textarea  class="form-control " id="editor1" name="description" required="required" ></textarea>
+                          <!-- <input type="text" id="description"  name="description" required="required" class="form-control col-md-7 col-xs-12" > -->
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Size <span class="required">*</span>
                         </label>
+
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <select name="size_id"   class="sign-up-input">
                            @foreach($size as $sizes)
@@ -88,6 +101,13 @@
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="text" id="sum"  name="qty" required="required" class="form-control col-md-7 col-xs-12" >
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Sale <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="sale"  name="sale"  class="form-control col-md-7 col-xs-12" >
                         </div>
                       </div>
                         <div class="form-group">

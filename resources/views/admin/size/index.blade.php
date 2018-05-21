@@ -42,7 +42,7 @@
                               </div>
                               <div class="x_content">
                                 <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-sm-6">
                                             <div class="dataTables_length" id="datatable_length">
                                                 <label>Show 
@@ -61,7 +61,7 @@
                                                 </label>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
@@ -97,7 +97,8 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="row">
+                           <center> {!!$data->links()!!}</center>
+                        <!-- <div class="row">
                             <div class="col-sm-7">
                                 <div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
                                     <ul class="pagination">
@@ -132,7 +133,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

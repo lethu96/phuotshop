@@ -49,22 +49,25 @@
               <form action="" method="POST" role="form">
                 <legend class="text-left">Xác nhận thông tin khách hàng</legend>
                 {{ csrf_field() }}
-                <div class="form-group">
-                  <label for="">
 
-                    - Tên khách hàng : <input type=" text" name="" value="{{ Auth::user()->name }}"> &nbsp;
-                  </label>
-                </div>
-                <div class="form-group">
-                  <label for="">
-                  - Điện thoại: <input type="text " name="" value="{{ Auth::user()->phone }}"> &nbsp;
-                  </label>
-                </div class="form-group">
-                <div>
-                  <label for="">
-                   - Địa chỉ: <input type="" name="" value="{{ Auth::user()->address }}">
-                   </label>
-                </div>              
+                <div class="col-md-4 first">
+                <p><label for="name" style="padding-top: 3%;">Tên Khách hàng : </label> 
+                 </p>
+                <p><label for="email" style="padding-top: 3%;">Điện thoại : </label>
+                 </p>
+
+                <p><label for="email" style="padding-top: 3%;">Địa chỉ : </label>
+                 
+                 </p>
+  
+              </div>
+              <div class="col-md-8">
+                <p>  <input type=" text" name="" value="{{ Auth::user()->name }}" class="form-control" required="required"></p>
+                <p><input type="text " name="" value="{{ Auth::user()->phone }}" class="form-control" required="required"></p>
+                <p> <input type="" name="" value="{{ Auth::user()->address }}" class="form-control" required="required" ></p>
+                
+              </div>
+                             
                 <div class="form-group">
                   <label for="">Các ghi chú khác</label>
                   <textarea name="txtnote" id="inputtxtNote" class="form-control" rows="4" required="required">                    
@@ -73,17 +76,34 @@
                 <button type="submit" class="btn btn-primary pull-right"> Đặt hàng (COD)</button> 
               </form>
               @else 
-              <form action="{!!url('/payment')!!}" method="Post" accept-charset="utf-8">
+              <form action="{{url('dat-hang-shop')}}" method="Post" accept-charset="utf-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                <div class="col-md-4 first">
+                <p><label for="name" style="padding-top: 3%;">Tên Khách hàng : </label> 
+                 </p>
+                <p><label for="email" style="padding-top: 3%;">Điện thoại : </label>
+                 </p>
+
+                <p><label for="email" style="padding-top: 3%;">Địa chỉ : </label>
+                 
+                 </p>
+  
+              </div>
+              <div class="col-md-8">
+                <p>  <input type=" text" name="" value="{{ Auth::user()->name }}" class="form-control" required="required"></p>
+                <p><input type="text " name="" value="{{ Auth::user()->phone }}" class="form-control" required="required"></p>
+                <p> <input type="" name="" value="{{ Auth::user()->address }}" class="form-control" required="required" ></p>
+                
+              </div>
+                             
                 <div class="form-group">
-                  <label for="">
-                    - Tên khách hàng : <strong>{{ Auth::user()->name }} </strong> &nbsp;
-                    - Điện thoại: <strong> {{ Auth::user()->phone }}</strong> &nbsp;
-                    - Địa chỉ: <strong> {{ Auth::user()->address }}</strong>
-                  </label>
-                </div>
-                  <br>                
-                <button type="submit" class="btn btn-danger pull-left"> Thanh toán qua Paypal </button> &nbsp;
+                  <label for="" style="float: left !important;">Các ghi chú khác</label>
+                  <textarea name="txtnote" id="inputtxtNote" class="form-control" rows="4" required="required">                    
+                  </textarea>
+                </div>  
+
+                <button type="submit" class="btn btn-danger pull-left"> Thanh toán Tại cửa hàng </button> &nbsp;
               </form>
               @endif
             </div>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSaleTable extends Migration
+class CreateFeedbackTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateSaleTable extends Migration
      */
     public function up()
     {
-        Schema::create('sale', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('code');
-            $table->text('type');
-            $table->integer('status');
+        Schema::create('feedback', function (Blueprint $table) {
+           $table->increments('id');
+            $table->string('email');
+            $table->string('name');
+            $table->text('feedback');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateSaleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sale');
+        Schema::dropIfExists('feedback');
     }
 }

@@ -182,6 +182,7 @@ class DatabaseSeeder extends Seeder
             'color_id' => '1',
             'price' => 14000000,
             'qty' => 10,
+            'sale' =>10,
         ]);
         DB::table('products')->insert([
             'type_id' => 4,
@@ -211,6 +212,7 @@ class DatabaseSeeder extends Seeder
             'color_id' => '1',
             'price' => 350000,
             'qty' => 10,
+            'sale' =>20,
         ]);
 
         DB::table('products')->insert([
@@ -306,11 +308,12 @@ class DatabaseSeeder extends Seeder
             'color_id' => '1',
             'price' => 500000,
             'qty' => 10,
+            'sale' => 25,
         ]);
         DB::table('products')->insert([
             'type_id' => 2,
             'company_id' => 1,
-            'name' => 'Găng tay xe máy Fuyuanda 1/2 lưới cụt ngón ',
+            'name' => 'Găng tay xe máy Fuyuanda  ',
             'title' => 'Găng tay xe máy Fuyuanda 1/2 lưới cụt ngón ',
             'description' => '<p>Chất liệu sợi cotton tho&aacute;ng m&aacute;t</p>
 <p>Dết lưới tho&aacute;ng gi&oacute;</p>
@@ -330,7 +333,7 @@ class DatabaseSeeder extends Seeder
         DB::table('products')->insert([
             'type_id' => 2,
             'company_id' => 1,
-            'name' => 'Găng tay xe máy Fuyuanda 1/2 lưới cụt ngón ',
+            'name' => 'Găng tay xe máy Fuyuanda  ',
             'title' => 'Găng tay xe máy Fuyuanda 1/2 lưới cụt ngón ',
             'description' => '<p>Chất liệu sợi cotton tho&aacute;ng m&aacute;t</p>
 <p>Dết lưới tho&aacute;ng gi&oacute;</p>
@@ -350,7 +353,7 @@ class DatabaseSeeder extends Seeder
         DB::table('products')->insert([
             'type_id' => 2,
             'company_id' => 1,
-            'name' => 'Găng tay xe máy Fuyuanda 1/2 lưới cụt ngón ',
+            'name' => 'Găng tay xe máy Fuyuanda  ',
             'title' => 'Găng tay xe máy Fuyuanda 1/2 lưới cụt ngón ',
             'description' => '<p>Chất liệu sợi cotton tho&aacute;ng m&aacute;t</p>
 <p>Dết lưới tho&aacute;ng gi&oacute;</p>
@@ -394,6 +397,7 @@ class DatabaseSeeder extends Seeder
             'color_id' => '1',
             'price' => 150000,
             'qty' => 10,
+            'sale' =>30,
         ]);
 
         DB::table('bill')->insert([

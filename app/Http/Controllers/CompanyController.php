@@ -9,7 +9,7 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        $data=Company::all()->toArray();
+        $data=Company::paginate(10);
         return view('admin.company.index',['data'=>$data]);
     }
 
