@@ -23,7 +23,7 @@ Route::get('logout', ['as' => 'logout', function () {
 }]);
 
 
-// Route::group(['middleware' =>'admin'], function () {
+Route::group(['middleware' =>'admin'], function () {
 	
 	Route::get('/home', 'HomeController@index')->name('home');
 	Route::get('/typeproduct','TypeProductController@index')->name('typeproduct');
@@ -84,7 +84,7 @@ Route::get('logout', ['as' => 'logout', function () {
 	Route::post('/bill/create', 'BillController@store');
 	Route::get('/report', 'ReportController@overview')->name('report');
 
- // });
+ });
 Route::get('user-acount','UserController@detail')->name('user-acount');
 Route::get('user-change-password', 'UserController@getchangePass');
 Route::post('user/change-password', 'UserController@changepass');
