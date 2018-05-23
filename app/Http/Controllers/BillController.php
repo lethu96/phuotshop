@@ -6,30 +6,37 @@ use Illuminate\Http\Request;
 use App\Bill;
 use App\User;
 use App\BillDetail;
+use DB;
 
 class BillController extends Controller
 {
-    public function index()
+
+    public function test()
     {
         $data=Bill::paginate(5);
-        $result =[]; 
+         return view('admin.bill.index',['data'=>$data]);
+    }
+
+    public function index()
+    {
+        // $data=Bill::paginate(5);
+        // $result =[]; 
+        // foreach ($data as  $value) {
+        //     $result=BillDetail::where('bill_id','=',$value['id'])->get()->toArray(); 
+             
+        // }
+        $data=Bill::all()->toArray();
+
         foreach ($data as  $value) {
-            $result=BillDetail::where('bill_id','=',$value['id'])->get()->toArray(); 
+        $products= DB::table('products')
+        ->join('bill_detail','bill_detail.product_id','=','products.id')
+        ->join('bill','bill.id', '=', 'bill_detail.bill_id')
+        ->selectRaw("products.title")
+        ->where('bill.id',$value['id'])->get()->toArray();
+    var_dump($products);
              
         }
-//            $data=Bill::all()->toArray();
-
-//         foreach ($data as  $value) {
-//         $products= DB::table('products')
-//         ->join('bill_detail','bill_detail.product_id','=','products.id')
-//         ->join('bill','bill.id', '=', 'bill_detail.bill_id')
-//         ->selectRaw("products.*")
-//         ->where('bill.id',$value['id'])->get()->toArray();
-//     var_dump($products);
-             
-//         }
-        
-// dd()
+        dd('hahaha');
 
         return view('admin.bill.index',['data'=>$data]);
     }

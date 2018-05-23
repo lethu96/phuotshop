@@ -50,18 +50,11 @@
                                     <tr role="row">
                                         <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 157px;">Name
                                         </th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 259px;">Type
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 117px;">Title</th>
                                         <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 117px;">Description</th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 117px;">Size</th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 117px;">Color</th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 117px;">Price</th>
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 117px;">Sum</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 60px;">Price</th>
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 60px;">Sum</th>
                                         <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 117px;">Image</th>
-
-
-                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 60px;">Note
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width:200px;">Note
                                         </th>
                                     </tr>
                                   </thead>
@@ -71,11 +64,7 @@
                                     @foreach($data as $item)
                                         <tr>
                                             <td>{{$item['name']}}</td>
-                                            <td>{{$item['type_id']}}</td>
-                                            <td>{{$item['title']}}</td>
                                             <td>{{$item['description']}}</td>
-                                            <td>{{$item['size_id']}}</td>
-                                            <td>{{$item['color_id']}}</td>
                                             <td>{{$item['price']}}</td>
                                             <td>{{$item['qty']}}</td>
                                             <td><img width="100px" height="100px" src="img/{{ $item['image'] }}"></td></td>
@@ -86,7 +75,7 @@
                                                 <a href="{{asset('/product/destroy/').'/'.$item['id']}}" class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa không??')">
                                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                 </a>
-                                                <a href="{{asset('/product/update/').'/'.$item['id']}}" class="buttonNext btn btn-success">Show</a>
+                                                <a href="{{asset('/product/show/').'/'.$item['id']}}" class="buttonNext btn btn-success">Show</a>
                                             </td>
                                         </tr>
                                     @endforeach

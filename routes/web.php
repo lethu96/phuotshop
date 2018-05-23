@@ -69,6 +69,7 @@ Route::group(['middleware' =>'admin'], function () {
 	Route::get('/product', 'ProductController@index')->name('product');
 	Route::get('/product/destroy/{id}', 'ProductController@destroy');
 	Route::get('/product/update/{id}', 'ProductController@show');
+	Route::get('/product/show/{id}','ProductController@detail');
 	Route::post('/product/update', 'ProductController@update')->name('productupdate');
 	Route::get('/product/create', 'ProductController@getStore');
 	Route::post('/product/create', 'ProductController@store');
@@ -110,3 +111,5 @@ Route::get('/getMail', function () {
     return view('form');
 });
 Route::post('/reset-pass','Auth\ResetPasswordController@resetpass');
+
+Route::get('test/bill','BillController@test');

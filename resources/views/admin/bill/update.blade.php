@@ -37,6 +37,7 @@
                           <select name="status">
                             <option value="0"> Chưa hoàn thành</option>
                             <option value="1"> Đã hoàn thành</option>
+                            <option value="2"> Đã hủy</option>
                           </select>
                         </div>
                       </div>

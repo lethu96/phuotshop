@@ -74,8 +74,9 @@
                                             <td>{{$item['amount']}}</td>
                                             <td>{{$item['total']}}</td>
                                             <td>{{$item['type']}}</td>
-                                            <td> @if($item['status']==0)  Chưa thanh toán
-                                                @else  Đã thanh toán
+                                            <td> @if($item['status']==1) Đã thanh toán 
+                                                @elseif($item['status']==0)  Chưa thanh toán
+                                                @else Đã hủy
                                                 @endif
                                             </td>
                                             <td>{{$item['note']}}</td>

@@ -185,7 +185,7 @@
                     <div class="search-container">
                     <form action="{{asset('search')}}" method="POST">
                          {{csrf_field()}}
-                      <input type="text" placeholder="Search.." name="search">
+                      <input type="text" placeholder="Search.." name="search" style="border: 3px solid #fff; border-radius: 26px; box-sizing: border-box padding: 5px 15px 7px;font-size: 14px;z-index: 2;position: relative;">
                       <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                   </div>

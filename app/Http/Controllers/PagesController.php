@@ -122,11 +122,7 @@ class PagesController extends Controller
                            ->limit(5)                           
                            ->get()                             
                            ->toArray();
-       $view=  DB::table('products')->orderBy('id')
-                           ->limit(5)                           
-                           ->get()                             
-                           ->toArray();
-        return view('product.typeproduct',['type' => $type, 'new' => $new ,'last' =>$last, 'view' => $view, 'cate' => $cate]);
+        return view('product.typeproduct',['type' => $type, 'new' => $new ,'last' =>$last, 'cate' => $cate]);
     }
 
     public function addcart($id)
@@ -148,11 +144,10 @@ class PagesController extends Controller
         $pro=Product::where('id',$data['id'])->first();
         if($data['number'] > $pro->qty)
         {
-        echo "<script>
-        alert('Bạn phải nhập đầy đủ thông tin ');
+          echo "<script>
+        alert('Cảm ơn bạn  đã góp ý cho chúng tôi. ');
+        window.location.href='/';
         </script>";
-        //window.location
-        return redirect()->back();
          
         } else {
           $realProduct=0;

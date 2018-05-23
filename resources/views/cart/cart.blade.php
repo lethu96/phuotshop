@@ -30,8 +30,8 @@
                     <tr>
                       <th>Hình ảnh</th>
                       <th>Tên sản phẩm</th>
-                      <th>SL</th>
-                      <th>Giá</th>
+                      <th style=" padding-left: 3%;">SL</th>
+                      <th >Giá</th>
                       <th>Thành tiền</th>
                       <th>Action</th>
                     </tr>
@@ -47,7 +47,7 @@
                           @else
                             <a href="#"><span class="glyphicon glyphicon-minus"></span></a> 
                           @endif
-                          <input type="text" class="qty text-center" value=" {!!$row->qty!!}" style="width:30px; font-weight:bold; font-size:15px; color:blue;" readonly="readonly"> 
+                          <input type="text" class="qty text-center" value=" {!!$row->qty!!}" style="width:33px; font-weight:bold; font-size:15px; color:blue;" readonly="readonly"> 
                         <a class="cart_quantity_down" href="{!!url('gio-hang/update/'.$row->rowId.'/'.$row->qty.'-up')!!}"><span class="glyphicon glyphicon-plus-sign">+</span></a>
                       </td>
                       <td>{!! number_format($row->price) !!} VND</td>

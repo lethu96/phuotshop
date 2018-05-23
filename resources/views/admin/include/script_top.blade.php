@@ -11,3 +11,8 @@
     <link href="{{asset('css/jqvmap.min.css')}}" rel="stylesheet"/>
     <link href="{{asset('css/daterangepicker.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <style type="text/css">
+        .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
+            background-color: white !important;
+        }
+    </style>

@@ -91,7 +91,7 @@
                                                 <a href="{{asset('/typeproduct/destroy/').'/'.$item['id']}}" class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa không??')">
                                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                 </a>
-                                                <a href="{{asset('/typeproduct/update/').'/'.$item['id']}}" class="buttonNext btn btn-success">Show</a>
+                                                
                                             </td>
                                         </tr>
                                     @endforeach

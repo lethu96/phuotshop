@@ -100,6 +100,16 @@ class ProductController extends Controller
         return view('admin.product.update',['id'=>$id,'data'=>$data, 'typeProduct' => $typeProduct,'size' => $size, 'color' => $color]);
     }
 
+    public function detail($id)
+    {
+        $data = Product::find($id)->toArray();
+        $typeProduct = TypeProduct::all();
+        $size = Size::all();
+        $color = Color::all();
+        return view('admin.product.show',['id'=>$id,'data'=>$data, 'typeProduct' => $typeProduct,'size' => $size, 'color' => $color]);
+
+    }
+
     public function destroy($id)
     {
         $val =Product::find($id);

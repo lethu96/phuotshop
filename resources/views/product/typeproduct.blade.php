@@ -78,7 +78,6 @@
                 <ul role="tablist" class="tab-nav-menu">
                     <li class="first-item active" role="presentation"><a data-toggle="tab" role="tab" aria-controls="new" href="#new" aria-expanded="false">New</a></li>
                     <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="latest" href="#latest" aria-expanded="true">Latest</a></li>
-                    <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="viewed" href="#viewed">viewed</a></li>
                 </ul>
             </div>
             <div class="widget-tab-content tab-content">
@@ -113,19 +112,6 @@
                     </ul>
                 </div>
                 <div id="viewed" class="tab-pane fade in" role="tabpanel">
-                    <ul class="product-list-widget">
-                        @foreach($view as $item)
-                         <li>
-                                <a href="" class="thumbnail">
-                                    <img src="/img/{{ $item->image }}" alt="" href="{{asset('/product/detail/').'/'.$item->id}}">
-                                </a>
-                                <div class="content">
-                                    <a href="{{asset('/product/detail/').'/'.$item->id}}">{{$item->name}}</a>
-                                    <span class="amount"> {{number_format($item->price)}}</span>
-                                </div>
-                            </li>
-                        @endforeach
-                    </ul>
                 </div>
             </div>
         </div>
