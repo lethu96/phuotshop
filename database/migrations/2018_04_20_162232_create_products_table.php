@@ -22,10 +22,6 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('title');
             $table->text('description');
-            $table->integer('size_id')->unsigned();
-            $table->foreign('size_id')->references('id')->on('size')->onDelete('cascade');
-            $table->integer('color_id')->unsigned();
-            $table->foreign('color_id')->references('id')->on('color')->onDelete('cascade');
             $table->string('image');
             $table->biginteger('price');
             $table->integer('qty');

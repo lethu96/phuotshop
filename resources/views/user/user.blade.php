@@ -119,7 +119,7 @@
                             <?php $stt++;?>
                             <tr>
                                 <td>{{ $stt}}</td>
-                                <td>{{ $row->madonhang}}</td>
+                                <td>HD{{ $row->madonhang}}</td>
                                 <td> <div> <img width="100px" height="100px" src="img/{{ $row->image }}"></div> 
                                     <div> {{ $row->name}}</div></td>
                                 <td>{{$row->soluong}}</td>

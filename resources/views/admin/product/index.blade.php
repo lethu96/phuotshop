@@ -1,21 +1,10 @@
 @extends('admin.home')
 
 @section('content')
-    <div class="">
+    <div class="setcolor">
             <div class="page-title">
               <div class="title_left">
                 <h3>List product</h3>
-              </div>
-
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -75,7 +64,7 @@
                                                 <a href="{{asset('/product/destroy/').'/'.$item['id']}}" class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa không??')">
                                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                 </a>
-                                                <a href="{{asset('/product/show/').'/'.$item['id']}}" class="buttonNext btn btn-success">Show</a>
+                                                <a href="{{asset('/product/show/').'/'.$item['id']}}" class=" btn btn-success"> <i class="fa fa-folder-open" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach

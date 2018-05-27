@@ -13,32 +13,24 @@ class BillController extends Controller
 
     public function test()
     {
-        $data=Bill::paginate(5);
-         return view('admin.bill.index',['data'=>$data]);
+        
     }
 
     public function index()
     {
-        // $data=Bill::paginate(5);
-        // $result =[]; 
-        // foreach ($data as  $value) {
-        //     $result=BillDetail::where('bill_id','=',$value['id'])->get()->toArray(); 
-             
-        // }
-        $data=Bill::all()->toArray();
+        $data=Bill::paginate(5);
+        return view('admin.bill.index',['data'=> $data]);
+    }
 
-        foreach ($data as  $value) {
-        $products= DB::table('products')
+    public function detail($id) 
+    {
+        $bill = Bill::find($id)->toArray();
+        $detail= DB::table('products')
         ->join('bill_detail','bill_detail.product_id','=','products.id')
-        ->join('bill','bill.id', '=', 'bill_detail.bill_id')
-        ->selectRaw("products.title")
-        ->where('bill.id',$value['id'])->get()->toArray();
-    var_dump($products);
-             
-        }
-        dd('hahaha');
-
-        return view('admin.bill.index',['data'=>$data]);
+        ->join('bill','bill.id','=','bill_detail.bill_id')
+        ->selectRaw("bill_detail.qty as qty,products.name as proname, products.image as proimage, products.price as price ")
+        ->where('bill.id',$id)->get()->toArray();
+        return view('admin.bill.detail',['detail' => $detail,'bill'=>$bill]);
     }
 
     public function update(Request $request)

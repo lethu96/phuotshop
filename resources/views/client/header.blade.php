@@ -207,9 +207,9 @@
             <div class="slider-container">
                 <!-- Slider Image -->
                 <div id="mainSlider" class="nivoSlider slider-image">
-                    <img src="{{asset('img/slider/slider.png')}}" alt="main slider" title="#htmlcaption1"/>
-                    <img src="{{asset('img/slider/game.jpg')}}" alt="main slider" title="#htmlcaption2"/>
-                    <img src="{{asset('img/slider/mac3.png')}}" alt="main slider" title="#htmlcaption3"/>
+                    <img src="{{asset('img/slider/slider2.png')}}" alt="main slider" title="#htmlcaption1"/>
+                    <img src="{{asset('img/slider/slider3.png')}}" alt="main slider" title="#htmlcaption2"/>
+                    <img src="{{asset('img/slider/mac4.png')}}" alt="main slider" title="#htmlcaption3"/>
                 </div>
             </div>
             <!-- Slider End-->

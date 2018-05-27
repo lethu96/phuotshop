@@ -35,20 +35,37 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('type_product')->insert([
-            'name' =>'Giày',
-            'description' => 'giày',
-            'status' => 1,
-        ]);
-
-        DB::table('type_product')->insert([
             'name' =>'Mũ bảo hiểm',
             'description' => 'mũ',
             'status' => 1,
         ]);
 
         DB::table('type_product')->insert([
+            'name' =>'Phụ kiện phượt',
+            'description' => 'phụ kiện phượt',
+            'status' => 1,
+        ]);
+
+        DB::table('type_product')->insert([
             'name' =>'Giáp',
             'description' => 'giáp',
+            'status' => 1,
+        ]);
+        DB::table('type_product')->insert([
+            'name' =>'Kính',
+            'description' => 'Kính',
+            'status' => 1,
+        ]);
+
+        DB::table('type_product')->insert([
+            'name' =>'Lều trại',
+            'description' => 'Lều trại',
+            'status' => 1,
+        ]);
+
+        DB::table('type_product')->insert([
+            'name' =>'Đồ leo núi',
+            'description' => 'Đồ leo núi',
             'status' => 1,
         ]);
 
@@ -59,33 +76,63 @@ class DatabaseSeeder extends Seeder
 
         DB::table('size')->insert([
             'name' => 'S',
-            'description' => 'size bé nhất',
+            'description' => '1m56-1m60',
         ]);
 
         DB::table('size')->insert([
             'name' => 'M',
-            'description' => 'size bé gần nhất',
+            'description' => '1m60-1m65',
+        ]);
+
+        DB::table('size')->insert([
+            'name' => 'L',
+            'description' => '15-175',
+        ]);
+
+        DB::table('size')->insert([
+            'name' => 'XL',
+            'description' => '1m75-1m90',
         ]);
 
 
         DB::table('color')->insert([
-            'name' => 'none',
+            'name' => 'None',
             'description' => 'khong mau',
         ]);
 
         DB::table('color')->insert([
-            'name' => 'đỏ',
+            'name' => 'Đỏ',
             'description' => 'đỏ',
         ]);
 
         DB::table('color')->insert([
-            'name' => 'xanh',
+            'name' => 'Xanh',
             'description' => 'xanh',
         ]);
 
         DB::table('color')->insert([
-            'name' => 'vàng',
+            'name' => 'Vàng',
             'description' => 'vàng',
+        ]);
+
+        DB::table('color')->insert([
+            'name' => 'Đen',
+            'description' => 'đỏ',
+        ]);
+
+        DB::table('color')->insert([
+            'name' => 'Đen xanh',
+            'description' => 'đen xanh',
+        ]);
+
+        DB::table('color')->insert([
+            'name' => 'Đen vàng',
+            'description' => ' đen vàng',
+        ]);
+
+        DB::table('color')->insert([
+            'name' => 'Rằn ri ',
+            'description' => ' màu lính',
         ]);
 
         DB::table('comment')->insert([
@@ -125,9 +172,7 @@ class DatabaseSeeder extends Seeder
 <p>M&agrave;u sắc nổi bật</p>
 <p>Đen, v&agrave;ng c&aacute;t, camo, xanh l&iacute;nh..</p>',
             'image' => 'balo_linh_7d__1__800x600.jpg',
-            'size_id' => '1',
-            'color_id' => '1',
-            'price' => 14000000,
+            'price' => 140000,
             'qty' => 10,
         ]);
 
@@ -138,12 +183,12 @@ class DatabaseSeeder extends Seeder
             'title' => 'Mũ phượt',
             'description' => '<p><strong>Mũ bảo hiểm 3/4</strong>&nbsp;l&agrave; sự lựa chọn của nhiều người d&ugrave;ng bởi n&oacute; kết hợp được nhiều yếu tốt:&nbsp;<em>vừa thời trang, đẹp mắt m&agrave; vẫn rất chắc chắn, an to&agrave;n</em>.</p>
 <p>Một chiếc mũ 3/4 tốt c&oacute; thể dễ d&agrave;ng sử dụng khi di chuyển trong th&agrave;nh phố nhưng vẫn rất ph&ugrave; hợp cho c&aacute;c chuyến chạy xe, đi chơi d&agrave;i ng&agrave;y.</p>
-<p><img src="mu_3_4_dep.jpg" /></p>
+<p><img src="http://dophuot.net/wp-content/uploads/2017/10/m%C5%A9-b%E1%BA%A3o-hi%E1%BB%83m-andes3.jpg" /></p>
 <p>3S 103D l&agrave; m&atilde; sản phẩm mới nhất của thương hiệu&nbsp;<strong>Andes</strong>&nbsp;trong năm 2018 với những cải tiến, n&acirc;ng cấp đ&aacute;ng kể hỗ trợ cho người d&ugrave;ng.</p>
 <p>Đầu ti&ecirc;n, kiểu d&aacute;ng của 3S 103D kh&aacute;c hẳn so với những chiếc&nbsp;<strong>mũ bảo hiểm 3/4 andes</strong>&nbsp;th&ocirc;ng thường. D&aacute;ng mũ tr&ugrave;m g&aacute;y, bo tr&ograve;n k&eacute;o d&agrave;i xuống m&aacute;.</p>
 <p>Tuy nhi&ecirc;n, phần gần cằm, nh&agrave; sản xuất thiết kế th&ecirc;m một lớp đệm cotton &ecirc;m &aacute;i với t&aacute;c dụng ngăn bụi bẩn, chống gi&oacute; v&agrave; bảo vệ tốt hơn. Lớp đệm n&agrave;y cũng tăng th&ecirc;m vẻ thời trang, nổi bật cho sản phẩm.</p>
 <p>Ngo&agrave;i t&aacute;c dụng ch&iacute;nh kể tr&ecirc;n, lớp l&oacute;t n&agrave;y c&ograve;n c&oacute; t&aacute;c dụng kh&aacute;c. N&oacute; c&oacute; thể xếp gọn lại, l&agrave;m giảm k&iacute;ch thước của to&agrave;n bộ mũ, nhờ đ&oacute;&nbsp;<strong>dễ d&agrave;ng cất cốp xe</strong>&nbsp;hay treo m&oacute;c m&agrave; kh&ocirc;ng bị vướng v&iacute;u.</p>
-<p><img src="mu_bao_hiem_andes_chinh_hang" /></p>
+
 <p>&nbsp;</p>
 <p>Sử dụng&nbsp;<strong>nhựa ABS nguy&ecirc;n sinh</strong>&nbsp;l&agrave;m vỏ t&ecirc;u chuẩn,&nbsp;<strong>mũ bảo hiểm 3/4</strong>&nbsp;andes 3S 103D c&oacute; khả năng chống chịu va đập rất tốt. Lớp vỏ n&agrave;y sẽ l&agrave;m giảm đ&aacute;ng kể chấn thương khi xảy ra va chạm, tai nạn..</p>
 <p>Phần lớp l&oacute;t sợi cotton được kh&aacute;ch h&agrave;ng đ&aacute;nh gi&aacute; rất cao v&igrave; n&oacute; mang lại cảm gi&aacute;c thoải m&aacute;i, m&aacute;t mẻ hơn. Khi sử dụng thời gian d&agrave;i, lớp l&oacute;t &ecirc;m &aacute;i gi&uacute;p&nbsp;<em>giảm đ&aacute;ng kể hiện tượng đau đầu, cộm, mỏi cổ...</em></p>
@@ -158,8 +203,6 @@ class DatabaseSeeder extends Seeder
 <p>Qu&yacute; kh&aacute;ch quan t&acirc;m tới sản phẩm mũ bảo hiểm 3/4 Andes 3S 103D xin gọi tới: <strong>0978716945</strong>để được tư vấn, hướng dẫn đặt h&agrave;ng, nhận h&agrave;ng tr&ecirc;n to&agrave;n quốc.</p>
 <p><em>&nbsp;</em></p>',
             'image' => '34.jpg',
-            'size_id' => '1',
-            'color_id' => '1',
             'price' => 250000,
             'qty' => 10,
         ]); 
@@ -170,17 +213,15 @@ class DatabaseSeeder extends Seeder
             'title' => 'Mũ bảo hiểm nửa đầu GXT có kính ngắn',
             'description' => '<p>GXT l&agrave; thương hiệu mũ bảo hiểm rất được y&ecirc;u th&iacute;ch tại thị trường Việt Nam với c&aacute;c sản phẩm:&nbsp;<em>GXT 3/4, GXT lật cằm 2017, 2018, GXT fullface....</em></p>
 <p>M&ugrave;a h&egrave; năm 2018, thương hiệu n&agrave;y đ&atilde; cho ra mắt th&ecirc;m d&ograve;ng sản phẩm&nbsp;<strong>mũ bảo hiểm nửa đầu</strong>&nbsp;với thiết kế gọn nhẹ, khỏe khoắn t&iacute;ch hợp c&ugrave;ng k&iacute;nh chống bụi, chống nắng bản lớn.</p>
-<p>Ngo&agrave;i ra, sản phẩm n&agrave;y c&ograve;n được n&acirc;ng cấp một số chi tiết hỗ trợ người d&ugrave;ng tốt hơn, rất ph&ugrave; hợp khi di chuyển, chạy xe trong th&agrave;nh phố<img src="gxt13.jpg" /></p>
+<p>Ngo&agrave;i ra, sản phẩm n&agrave;y c&ograve;n được n&acirc;ng cấp một số chi tiết hỗ trợ người d&ugrave;ng tốt hơn, rất ph&ugrave; hợp khi di chuyển, chạy xe trong th&agrave;nh phố<img src="http://thegioimu.com.vn/wp-content/uploads/2016/07/media-39298.jpg" /></p>
 <p>&nbsp;</p>
 <p>Vỏ ngo&agrave;i của chiếc mũ được sản xuất ho&agrave;n to&agrave;n từ&nbsp;<strong>nhựa ABS nguy&ecirc;n sinh</strong>. Đ&acirc;y l&agrave; loại nhựa ti&ecirc;u chuẩn cho sản xuất mũ bảo hiểm hiện nay với đặc t&iacute;nh:&nbsp;<em>trọng lượng nhẹ, chống chịu va đập rất tốt, cứng, chắc chắn..</em></p>
 <p>Phần l&oacute;t trong, nh&agrave; sản xuất kh&ocirc;ng sử dụng l&oacute;t sợi vải như c&aacute;c loại mũ truyền thống m&agrave; thay đổi sang dạng sợi nhựa bản lớn. Sự thay đổi n&agrave;y gi&uacute;p hạn chế đ&aacute;ng kể việc&nbsp;<em>ra mồ h&ocirc;i, b&iacute;, n&oacute;ng nực</em>... nhất l&agrave; trong m&ugrave;a h&egrave;.</p>
-<p><img src="gxt.jpg" /></p>
+<p><img src="https://phuotstore.net/upload/store/2016-07/mu-bao-hiem-lat-cam-gxt-the-he-2-2015-den-nham-2.jpg" /></p>
 <p>2 lỗ h&uacute;t gi&oacute; lớn phế trước tr&aacute;n gi&uacute;p tăng khả năng điều h&ograve;a kh&ocirc;ng kh&iacute;. Gi&oacute; từ lỗ n&agrave;y sẽ đi khắp ph&iacute;a trong mũ v&agrave; tho&aacute;t ra ph&iacute;a sau g&aacute;y, ưu điểm đ&aacute;ng kể bởi hầu hết c&aacute;c loại mũ bảo hiểm nửa đầu hiện tại đều kh&ocirc;ng c&oacute; chi tiết n&agrave;y.</p>
 <p>Chốt kh&oacute;a hợp kim kh&ocirc;ng rỉ rất bền bỉ, b&ecirc;n cạnh đ&oacute; l&agrave; chiếc k&iacute;nh tr&ugrave;m bản lớn ph&iacute;a trước gi&uacute;p ngăn bụi bẩn, c&ocirc;n tr&ugrave;ng, đất đ&aacute;, bảo vệ mắt...</p>',
             'image' => 'mu_bao_hiem_gxt_nua_dau_900x600.jpg',
-            'size_id' => '1',
-            'color_id' => '1',
-            'price' => 14000000,
+            'price' => 140000,
             'qty' => 10,
             'sale' =>10,
         ]);
@@ -192,7 +233,7 @@ class DatabaseSeeder extends Seeder
             'description' => ' <p><strong>Royal</strong>&nbsp;l&agrave; thương hiệu mũ bảo hiểm nội địa, sản xuất tại Việt Nam với d&acirc;y chuyền c&ocirc;ng nghệ ngoại nhập. Nhờ vậy sản phẩm đảm bảo chất lượng nhưng c&oacute; mức gi&aacute; th&agrave;nh hợp l&yacute;, vừa t&uacute;i tiền.</p>
 <p><strong>Royal M136</strong>&nbsp;l&agrave; chiếc&nbsp;<strong>mũ bảo hiểm fullface</strong>&nbsp;rất được y&ecirc;u th&iacute;ch bởi người d&ugrave;ng phổ th&ocirc;ng. Sản phẩm đ&atilde; c&oacute; mặt tr&ecirc;n thị trường từ cuối năm 2016 v&agrave; nhận được phản hồi rất tốt.</p>
 <p>&nbsp;</p>
-<p><img src="6_1.jpg" /></p>
+<p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo1NMwQzTEpmC5VSt3bwvee18tT-Q_gps_iu7QYkgviBS55Iwf_Q" /></p>
 <p>&nbsp;</p>
 <p>Về thiết kế, điểm nổi bật nhất của sản phẩm n&agrave;y l&agrave;&nbsp;<em>k&iacute;ch thước nhỏ gọn, trọng lượng nhẹ</em>, rất ph&ugrave; hợp khi di chuyển trong phố hoặc c&aacute;c chuyến đi ngắn ng&agrave;y.</p>
 <p>Vỏ mũ sử dụng chất liệu&nbsp;<strong>nhựa ABS nguy&ecirc;n sinh</strong>&nbsp;ti&ecirc;u chuẩn, n&oacute; gi&uacute;p tăng cường khả năng chống chịu va đập, đ&agrave;n hồi v&agrave; bảo vệ tốt cho người đội. B&ecirc;n cạnh đ&oacute;, loại nhựa n&agrave;y c&oacute; đặc điểm rất nhẹ, gi&uacute;p tổng trọng lượng chiếc mũ giảm đi đ&aacute;ng kể.</p>
@@ -208,8 +249,6 @@ class DatabaseSeeder extends Seeder
 <p><em>- Size: M, L, XL</em></p>
 <p>Nếu cần th&ecirc;m th&ocirc;ng tin về sản phẩm mũ bảo hiểm royal fullface, qu&yacute; kh&aacute;ch vui l&ograve;ng li&ecirc;n hệ:&nbsp;<strong>0966778790</strong>&nbsp;để được tư vấn, hướng dẫn đặt h&agrave;ng, nhận h&agrave;ng tại nh&agrave; tr&ecirc;n to&agrave;n quốc.</p>',
             'image' => '6_1_900x599.jpg',
-            'size_id' => '1',
-            'color_id' => '1',
             'price' => 350000,
             'qty' => 10,
             'sale' =>20,
@@ -240,8 +279,6 @@ class DatabaseSeeder extends Seeder
 <p>Li&ecirc;n hệ mua h&agrave;ng:&nbsp;<strong>0978716945</strong></p>
 <p>&nbsp;</p>',
             'image' => 'kang.jpg',
-            'size_id' => '1',
-            'color_id' => '1',
             'price' => 550000,
             'qty' => 10,
         ]);
@@ -258,8 +295,6 @@ class DatabaseSeeder extends Seeder
 <p>Tiện dụng v&agrave; phong c&aacute;ch, thiết kế độc đ&aacute;o, dễ sử dụng.&nbsp;Balo đeo ch&eacute;o vải th&ocirc; FreeBase l&agrave; một trong những sản phẩm được y&ecirc;u th&iacute;ch nhất bởi c&aacute;c bạn trẻ y&ecirc;u xe dịch v&agrave; th&iacute;ch sự độc đ&aacute;o, c&aacute; t&iacute;nh.<img src="//cdn.nhanh.vn/cdn/store/5620/psCT/20151110/2151847/Balo_vai_tho_FreeBase_(backpack_freebase_military_style_canvas_backpack_1_1024x1024).jpg" alt="" width="500" height="500" /></p>
 <p><img src="//cdn.nhanh.vn/cdn/store/5620/psCT/20151110/2151847/Balo_vai_tho_FreeBase_(t2o805xhxxxxxxxxxx___733908710).jpg" alt="" width="500" height="699" /></p>',
             'image' => 'T2O805XhxXXXXXXXXX___733908710_500x699.jpg',
-            'size_id' => '1',
-            'color_id' => '1',
             'price' => 250000,
             'qty' => 10,
         ]);
@@ -281,8 +316,6 @@ class DatabaseSeeder extends Seeder
 <p><img src="//cdn.nhanh.vn/cdn/store/5620/psCT/20160414/2788214/Balo_Mammut_(12980508_1195538050491126_225666810_n).jpg" alt="" /></p>
 <p><img src="//cdn.nhanh.vn/cdn/store/5620/psCT/20160414/2788214/Balo_Mammut_(13022370_1195538077157790_1064432242_n).jpg" alt="" width=',
             'image' => '13015087_1195537940491137_76438799_n_720x960.jpg',
-            'size_id' => '1',
-            'color_id' => '1',
             'price' => 500000,
             'qty' => 10,
         ]);
@@ -304,8 +337,6 @@ class DatabaseSeeder extends Seeder
 <p><img src="//cdn.nhanh.vn/cdn/store/5620/psCT/20160414/2788214/Balo_Mammut_(12980508_1195538050491126_225666810_n).jpg" alt="" /></p>
 <p><img src="//cdn.nhanh.vn/cdn/store/5620/psCT/20160414/2788214/Balo_Mammut_(13022370_1195538077157790_1064432242_n).jpg" alt="" width=',
             'image' => '13015087_1195537940491137_76438799_n_720x960.jpg',
-            'size_id' => '1',
-            'color_id' => '1',
             'price' => 500000,
             'qty' => 10,
             'sale' => 25,
@@ -325,8 +356,6 @@ class DatabaseSeeder extends Seeder
 <p>C&oacute; thể vệ sinh nhờ m&aacute;y giặt</p>
 <p>Li&ecirc;n hệ mua h&agrave;ng:0978716945</p>',
             'image' => '30124926_1912772195434371_5870364469858664448_n_600x900.jpg',
-            'size_id' => '1',
-            'color_id' => '1',
             'price' => 120000,
             'qty' => 10,
         ]);
@@ -345,8 +374,6 @@ class DatabaseSeeder extends Seeder
 <p>C&oacute; thể vệ sinh nhờ m&aacute;y giặt</p>
 <p>Li&ecirc;n hệ mua h&agrave;ng:0978716945</p>',
             'image' => '30124926_1912772195434371_5870364469858664448_n_600x900.jpg',
-            'size_id' => '1',
-            'color_id' => '1',
             'price' => 120000,
             'qty' => 10,
         ]);
@@ -365,8 +392,6 @@ class DatabaseSeeder extends Seeder
 <p>C&oacute; thể vệ sinh nhờ m&aacute;y giặt</p>
 <p>Li&ecirc;n hệ mua h&agrave;ng:0978716945</p>',
             'image' => '30124926_1912772195434371_5870364469858664448_n_600x900.jpg',
-            'size_id' => '1',
-            'color_id' => '1',
             'price' => 120000,
             'qty' => 10,
         ]);
@@ -393,8 +418,6 @@ class DatabaseSeeder extends Seeder
 <p>Do c&oacute; khả năng co gi&atilde;n, đ&agrave;n hồi tốt,&nbsp;<strong>găng tay xe m&aacute;y EGO</strong>&nbsp;c&oacute; thể sử dụng được cho cả nam v&agrave; nữ.</p>
 <p>Nếu bạn quan t&acirc;m tới sản phẩm, vui l&ograve;ng li&ecirc;n hệ: <strong>0978716945&nbsp;</strong>để được tư vấn th&ocirc;ng tin chi tiết hơn hoặc hướng dẫn đặt h&agrave;ng, nhận h&agrave;ng tại nh&agrave; tr&ecirc;n to&agrave;n quốc.</p>',
             'image' => 'gang_tay_xe_may_1000x1000.jpg',
-            'size_id' => '1',
-            'color_id' => '1',
             'price' => 150000,
             'qty' => 10,
             'sale' =>30,

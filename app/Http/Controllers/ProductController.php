@@ -8,6 +8,7 @@ use App\TypeProduct;
 use App\Size;
 use App\Color;
 use App\Company;
+use DB;
 
 class ProductController extends Controller
 {
@@ -37,8 +38,6 @@ class ProductController extends Controller
         $product->name = $data['name'];
         $product->type_id = $data['type_id'];
         $product->title = $data['title'];
-        $product->size_id = $data['size_id'];
-        $product->color_id = $data['color_id'];
         $product->price = $data['price'];
         $product->qty = $data['qty'];
         if ($data['description']!=null) {
@@ -52,7 +51,10 @@ class ProductController extends Controller
             $product->image = $file->getClientOriginalName();
         }
         $product->save();
-        return redirect('/product')->with(['message'=>"Sửa dữ liệu thành công "]);
+        echo "<script>
+        alert('Cập nhật sản phẩm thành công ');
+        window.location.href='/product';
+        </script>";
     }
 
     public function getStore(Request $request)
@@ -76,8 +78,6 @@ class ProductController extends Controller
             $product->sale=$data['sale'];
         }
         $product->title = $data['title'];
-        $product->size_id = $data['size_id'];
-        $product->color_id = $data['color_id'];
         $product->price = $data['price'];
         $product->qty = $data['qty'];
         $product->description = $data['description'];
@@ -88,7 +88,10 @@ class ProductController extends Controller
             $product->image = $file->getClientOriginalName();
         }
         $product->save();
-        return redirect('/product')->with(['message'=>"Sửa dữ liệu thành công "]);
+        echo "<script>
+        alert('Thêm sản phẩm thành công');
+        window.location.href='/product';
+        </script>";
     }
 
     public function show($id)
@@ -103,10 +106,17 @@ class ProductController extends Controller
     public function detail($id)
     {
         $data = Product::find($id)->toArray();
-        $typeProduct = TypeProduct::all();
-        $size = Size::all();
-        $color = Color::all();
-        return view('admin.product.show',['id'=>$id,'data'=>$data, 'typeProduct' => $typeProduct,'size' => $size, 'color' => $color]);
+        $typeProduct = DB::table('products')
+        ->join('type_product','products.type_id','=','type_product.id')
+        ->selectRaw("type_product.name")
+        ->where('products.id',$id)->first();
+        $properties= DB::table('products')
+          ->join('properties','properties.product_id','=','products.id')
+          ->join('size','size.id','=','properties.size_id')
+          ->join('color','color.id', '=', 'properties.color_id')
+          ->selectRaw("size.name as sizename,color.name as colorname")
+          ->where('products.id',$id)->get()->toArray();
+        return view('admin.product.show',['id'=>$id,'data'=>$data, 'typeProduct' => $typeProduct,'typeProduct' => $typeProduct, 'properties' => $properties]);
 
     }
 
@@ -114,6 +124,6 @@ class ProductController extends Controller
     {
         $val =Product::find($id);
         $val->delete();
-         return redirect('/product')->with(['message'=>' xoá thành công']);
+        return redirect('/product')->with(['message'=>' xoá thành công']);
     }
 }

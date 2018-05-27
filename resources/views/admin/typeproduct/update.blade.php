@@ -1,7 +1,7 @@
 @extends('admin.home')
 
 @section('content')
-          <div class="">
+          <div class="setcolor">
             <div class="clearfix"></div>
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
@@ -46,7 +46,7 @@
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-primary" type="button">Cancel</button>
+                          <button class="btn btn-primary" type="button"><a href="/typeproduct" style="color: white;">Cancel</a></button>
                           <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                       </div>
@@ -56,5 +56,6 @@
                 </div>
               </div>
             </div>
+          </div>
 
 @endsection

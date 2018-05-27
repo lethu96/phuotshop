@@ -1,6 +1,6 @@
 @extends('client.master')
 @section('content')
-<div> <a href="url('user-acount') " style="color: #337ab7;"><<< Trở về </a></div>
+<div> <a href="{{url('user-acount')}} " style="color: #337ab7;"><<< Trở về </a></div>
 <form id="form-change-password" role="form" method="POST" action="{{ url('/user/change-password') }}" novalidate class="form-horizontal">
   <div class="col-md-9">             
     <label for="current-password" class="col-sm-4 control-label" require>Current Password</label>

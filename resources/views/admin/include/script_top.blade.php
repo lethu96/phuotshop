@@ -15,4 +15,7 @@
         .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
             background-color: white !important;
         }
+        .setcolor{
+            color:black;
+        }
     </style>

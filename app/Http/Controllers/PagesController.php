@@ -11,6 +11,7 @@ use App\Bill;
 use App\BillDetail;
 use DB,Cart,Datetime;
 use App\Feedback;
+use App\Property;
 
 class PagesController extends Controller
 {
@@ -80,19 +81,21 @@ class PagesController extends Controller
                            ->get()                             
                            ->toArray();
         $sale= Product::where('sale','!=','null')->paginate(4);
-        $data1=Product::where('type_id', '=', 2)->paginate(4);
-        $data3=Product::where('type_id', '=', 4)->paginate(4);
+        $data1=Product::where('type_id', '=', 1)->paginate(4);
+        $data3=Product::where('type_id', '=', 3)->paginate(4);
         return view('client.index',['new' => $new ,'last' =>$last, 'view' => $view ,'data1' => $data1,'data3' => $data3,'cate' => $cate, 'sale' => $sale]);
     }
 
     public function showDetail($id)
     {
       $product = Product::find($id)->toArray();
-        $products= DB::table('products')
-        ->join('size','size.id','=','products.size_id')
-        ->join('color','color.id', '=', 'products.color_id')
-        ->selectRaw("products.*,size.id ,color.id ,size.name as sizename,color.name as colorname")
-        ->where('products.id',$id)->get()->toArray();
+          $properties= DB::table('products')
+          ->join('properties','properties.product_id','=','products.id')
+          ->join('size','size.id','=','properties.size_id')
+          ->join('color','color.id', '=', 'properties.color_id')
+          ->selectRaw("products.*,size.id ,color.id ,size.name as sizename,color.name as colorname")
+          ->where('products.id',$id)->get()->toArray();
+          
         $cate = TypeProduct::all()->toArray();
                 $new = DB::table('products')->orderBy('id', 'desc')
                            ->limit(5)                           
@@ -107,7 +110,7 @@ class PagesController extends Controller
                            ->get()                             
                            ->toArray();
 
-        return view('product.detail',['products' => $products,'product'=>$product ,'new' => $new ,'last' =>$last, 'view' => $view, 'cate' => $cate]);
+        return view('product.detail',['product'=>$product,'properties'=>$properties ,'new' => $new ,'last' =>$last, 'view' => $view, 'cate' => $cate]);
     }
 
         public function typeProduct($id)
@@ -145,7 +148,7 @@ class PagesController extends Controller
         if($data['number'] > $pro->qty)
         {
           echo "<script>
-        alert('Cảm ơn bạn  đã góp ý cho chúng tôi. ');
+        alert('Số sản phẩm bạn nhập lớn hơn số sản phẩm trong kho. Bạn vui lòng nhập lại');
         window.location.href='/';
         </script>";
          

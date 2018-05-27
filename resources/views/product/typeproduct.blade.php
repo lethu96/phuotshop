@@ -18,13 +18,19 @@
                                         <i aria-hidden="true" class="fa fa-shopping-cart Addcart" data-id="{{$item['id']}}"></i>
                                     </a>
                                 </div>
-                            
-                            <div class="product-button-group">
-                                <a class="add-to-compare" href=""><i class="fa fa-info" aria-hidden="true" title="Thông tin chi tiết sản phẩm"></i></a>
-                                <a href="#" title="Quick view" data-toggle="modal" data-content="{{$item['description']}}" data-id="{{$item['id']}}" class="btn-quickview view_product" data-target="#productModal"><i class="fa fa-search" aria-hidden="true"></i></a></a>
-                            </div>
                         </div>
                     </div>
+                    @if($item['sale']!=null)
+                    <div class="phuotshop-item-card__badge-wrapper" style="">
+                            <div class="phuotshop-badge phuotshop-badge--fixed-width phuotshop-badge--promotion" style="">
+                                <div class="phuotshop-badge--promotion__label-wrapper phuotshop-badge--promotion__label-wrapper--vi-VN">
+                                    <span class="percent">{{$item['sale']}}%</span>
+                                    <span class="phuotshop-badge--promotion__label-wrapper__off-label phuotshop-badge--promotion__label-wrapper__off-label--vi-VN">giảm</span>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                    @endif
                     <div class="product-details-content text-center">
                         <div class="ratting">
                             <i class="fa fa-star"></i>

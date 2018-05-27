@@ -22,10 +22,6 @@
                                         </a>
                                     </div>
                                 
-                                <div class="product-button-group">
-                                    <a class="add-to-compare" href=""><i class="fa fa-info" aria-hidden="true" title="Thông tin chi tiết sản phẩm"></i></a>
-                                    <a href="#" title="Quick view" data-toggle="modal" data-content="{{$item['description']}}" data-id="{{$item['id']}}" class="btn-quickview view_product" data-target="#productModal"><i class="fa fa-search" aria-hidden="true"></i></a></a>
-                                </div>
                             </div>
                         </div>
                         <div class="phuotshop-item-card__badge-wrapper" style="">
@@ -85,11 +81,6 @@
                                         <i aria-hidden="true" class="fa fa-shopping-cart Addcart" data-id="{{$item['id']}}"></i>
                                     </a>
                                 </div>
-                            
-                            <div class="product-button-group">
-                                <a class="add-to-compare" href=""><i class="fa fa-info" aria-hidden="true" title="Thông tin chi tiết sản phẩm"></i></a>
-                                <a href="#" title="Quick view" data-toggle="modal" data-content="{{$item['description']}}" data-id="{{$item['id']}}" class="btn-quickview view_product" data-target="#productModal"><i class="fa fa-search" aria-hidden="true"></i></a></a>
-                            </div>
                         </div>
                     </div>
                     <div class="product-details-content text-center">
@@ -106,8 +97,6 @@
                         </span>
                         
                             <a href="{{asset('/product/detail/').'/'.$item['id']}}" title="" class="btn btn-danger">Xem chi tiết</a>
-                        
-                        
                     </div>
                 </div>
             </div>
@@ -119,7 +108,7 @@
  <div class="clearfix"></div>
 
   <div class="clearfix"></div>
-<div class="col-md-12 recoment-header ">Balo Phượt </div>
+<div class="col-md-12 recoment-header ">BALO PHƯỢT </div>
  <div class=" row">
     <div class="product-index">
        @foreach($data1 as $item)
@@ -139,11 +128,6 @@
                                         <i aria-hidden="true" class="fa fa-shopping-cart Addcart" data-id="{{$item['id']}}"></i>
                                     </a>
                                 </div>
-                            
-                            <div class="product-button-group">
-                                <a class="add-to-compare" href=""><i class="fa fa-info" aria-hidden="true" title="Thông tin chi tiết sản phẩm"></i></a>
-                                <a href="#" title="Quick view" data-toggle="modal" data-content="{{$item['description']}}" data-id="{{$item['id']}}" class="btn-quickview view_product" data-target="#productModal"><i class="fa fa-search" aria-hidden="true"></i></a></a>
-                            </div>
                         </div>
                     </div>
                     <div class="product-details-content text-center">
@@ -160,8 +144,6 @@
                         </span>
                         
                             <a href="{{asset('/product/detail/').'/'.$item['id']}}" title="" class="btn btn-danger">Xem chi tiết</a>
-                        
-                        
                     </div>
                 </div>
             </div>

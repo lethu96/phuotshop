@@ -30,6 +30,8 @@
                       <li><a href="{{ route('company') }}">Company</a></li>
                       <li><a  href="{{ route('customer') }}">Customer</a>
                       <li><a href="{{ route('typeproduct') }}">Type Product</a></li>
+                      <li><a href="{{ route('property') }}">Property</a></li>
+                      <li> <a href="{{ route('feedback')}}"> Feedback</a></li>
                     </ul>
                   </li>
                   <li><a href="{{ route('bill') }}"><i class="fa fa-money"></i> Bill </span></a></li>

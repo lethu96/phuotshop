@@ -2,10 +2,9 @@
 @section('content')
 <div class="container">
   <div >
-    <h3 class="panel-title">
-      <span class="glyphicon glyphicon-home"><a href="#" title=""> Home</a></span> 
-      <span class="glyphicon glyphicon-chevron-right" style="font-size: 11px;"></span><a href="#" title=""> Đặt hàng</a>
-      <span class="glyphicon glyphicon-chevron-right" style="font-size: 11px;"></span> <a href="#" title="">{!!$slug!!}</a>
+    <h3 class="panel-title" style="margin-bottom: 3%;">
+    <a href="#" title=""> Home >> Đặt hàng >>{!!$slug!!}</a></span> 
+      
     </h3>              
     <div >              
       <div class="row">

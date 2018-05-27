@@ -78,12 +78,21 @@ Route::group(['middleware' =>'admin'], function () {
 	Route::post('feedback','PagesController@feedback');
 
 	Route::get('/bill', 'BillController@index')->name('bill');
-	Route::get('/bill/destroy/{id}', 'BillController@destroy');
-	Route::get('/bill/update/{id}', 'BillController@show');
-	Route::post('/bill/update', 'BillController@update')->name('billupdate');
+	Route::get('/bill-destroy/{id}', 'BillController@destroy');
+	Route::get('/bill-update/{id}', 'BillController@show');
+	Route::post('/bill-update', 'BillController@update')->name('billupdate');
 	Route::get('bill/create', 'BillController@getStore');
 	Route::post('/bill/create', 'BillController@store');
+	Route::get('bill-detail/{id}','BillController@detail');
 	Route::get('/report', 'ReportController@overview')->name('report');
+
+	Route::get('/property','PropertyController@index')->name('property');
+	Route::get('/property/create','PropertyController@getStore');
+	Route::post('property/create','PropertyController@store');
+	Route::get('/property/destroy/{product_id}/{size_id}/{color_id}', 'PropertyController@destroy');
+
+	Route::get('/feedback','FeedbackController@index')->name('feedback');
+	Route::get('/feedback/destroy/{id}', 'FeedbackController@destroy');
 
  });
 Route::get('user-acount','UserController@detail')->name('user-acount');

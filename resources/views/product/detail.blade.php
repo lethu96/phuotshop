@@ -102,18 +102,29 @@
                             <font style="font-weight: bold;">Thời gian vận chuyển</font> : <span>7 ngày sau khi đặt hàng</span>
                         </div>
                         <div>
-                            <select name="getcount" style="height: 35px;margin-bottom: 15px">
-                                    @foreach($products as $item)
-                                    <option value="{{$item->id}}">
-                                      Màu: {{$item->colorname}} - Size: {{{$item->sizename}}}
-                                    </option>
-                                    @endforeach
-                                </select>
+                           
                             </div>
                         <div class="quick-add-to-cart">
                             <div class="price-box">
                                 <font style="font-weight: bold;">Đổi trả trong vòng </font>  : 72 giờ
                             </div>
+                            <div>
+                             @if($properties!=null)
+
+                                <div> <label> Size </label>  - <label> Màu</label> :  </div>
+                                <select name="getcount" style="height: 35px;margin-bottom: 15px">
+                                       @foreach($properties as $item)
+                                        <option value="{{$item->id}}">
+                                            {{$item->sizename}} - {{$item->colorname}} 
+                                        </option>
+                                        @endforeach
+                                   </select>
+                                   
+                                 </div>
+                            @else
+                        </div>
+                            @endif
+
                             <div class="numbers-row">
                                 <input type="number" name="number"  id="number" value="1" min="1" max="100" onclick="this.focus()" >
                             </div>

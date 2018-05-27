@@ -1,7 +1,7 @@
 @extends('admin.home')
 
 @section('content')
-          <div class="">
+          <div class="setcolor">
             <div class="clearfix"></div>
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
@@ -24,25 +24,21 @@
                         {{csrf_field()}}
                         <input type="hidden" name="id" value="{{$id}}" >
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Name <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Name 
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="text" id="name"  name="name" required="required" class="form-control col-md-7 col-xs-12" value="{{$data['name']}}" readonly>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name"> Type <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Tye Product 
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select name="type_id"   class="sign-up-input" >
-                            @foreach($typeProduct as $item)
-                                <option value="{{ $item['id'] }}" >{{ $item['name'] }}</option>
-                            @endforeach
-                            </select>
+                          <input type="text" id="typeProduct"  name="typeProduct" readonly  class="form-control col-md-7 col-xs-12" value="{{$typeProduct->name}}">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Title <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Title 
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="text" id="title"  name="title" readonly  class="form-control col-md-7 col-xs-12" value="{{$data['title']}}">
@@ -50,50 +46,41 @@
                       </div>
                       <div class="form-group">
 
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Description <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Description 
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         	<textarea style="height: 500px; width: 500px;" readonly>{!! $data['description'] !!} </textarea>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Size <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Size - Color
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select name="size_id"   class="sign-up-input">
-                           @foreach($size as $sizes)
-                                <option value="{{ $sizes['id'] }}" >{{ $sizes['name'] }}</option>
-                            @endforeach
-                            </select>
+                          @if($properties!=null)
+                             @foreach($properties as $item)
+                              <div> {{$item->sizename}} - {{$item->colorname}}  </div>
+                              @endforeach
+                            @else
+                            <div> None  </div>
+                            @endif
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Color <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select name="color_id"   class="sign-up-input">
-                           @foreach($color as $colors)
-                                <option value="{{ $colors['id'] }}" >{{ $colors['name'] }}</option>
-                            @endforeach
-                            </select>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Price <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Price 
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="text" id="price"  name="price" readonly class="form-control col-md-7 col-xs-12" value="{{$data['price']}}">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Sum <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Sum
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="text" id="sum"  name="qty" readonly class="form-control col-md-7 col-xs-12" value="{{$data['qty']}}" style="overflow: scroll;">
                         </div>
                       </div>
                         <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Image <span class="required" > *</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Image 
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         	<img width="200px" height="200px" src="/img/{{ $data['image'] }}">

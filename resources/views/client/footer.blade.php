@@ -161,7 +161,7 @@
     $('.view_product').click(function() {
         var id = $(this).data('id');
         var content = $(this).data('content');
-        var img = $('#img_'+id).attr('src');
+        var img = $('#img_view'+id).attr('src');
         var title = $('#title_'+id).text();
         var price = $('#price_'+id).text();
         $('#see_all').attr('href', '/product/detail?id='+id);

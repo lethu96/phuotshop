@@ -18,11 +18,6 @@
                                             <i aria-hidden="true" class="fa fa-shopping-cart Addcart" data-id="{{$item['id']}}"></i>
                                         </a>
                                     </div>
-                                
-                                <div class="product-button-group">
-                                    <a class="add-to-compare" href=""><i class="fa fa-info" aria-hidden="true" title="Thông tin chi tiết sản phẩm"></i></a>
-                                    <a href="#" title="Quick view" data-toggle="modal" data-content="{{$item['description']}}" data-id="{{$item['id']}}" class="btn-quickview view_product" data-target="#productModal"><i class="fa fa-search" aria-hidden="true"></i></a></a>
-                                </div>
                             </div>
                         </div>
                         <div class="phuotshop-item-card__badge-wrapper" style="">
