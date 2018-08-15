@@ -42,7 +42,7 @@
                                 </a>
                                 <div class="content">
                                     <a href="{{asset('/product/detail/').'/'.$item->id}}">{{$item->name}}</a>
-                                    <span class="amount"> {{number_format($item->price)}}</span>
+                                    <span class="amount"> {{number_format($item->price)}}đ</span>
                                 </div>
                             </li>
                         @endforeach
@@ -57,7 +57,7 @@
                                 </a>
                                 <div class="content">
                                     <a href="{{asset('/product/detail/').'/'.$item->id}}">{{$item->name}}</a>
-                                    <span class="amount"> {{number_format($item->price)}}</span>
+                                    <span class="amount"> {{number_format($item->price)}}đ</span>
                                 </div>
                             </li>
                         @endforeach
@@ -90,7 +90,15 @@
                     <div class="product-info">
                         <h1 id="title_view" style="color:blue">{{$product['name']}}</h1>
                         <div class="price-box">
-                            <p class="price"><span class="special-price"><span class="amount" id="price_view" style="color:red">{{number_format($product['price'])}}  VND</span></span></p>
+                            <p class="price">
+                                 @if($product['sale']!=null)
+                                 <span class="special-price" style="color: black;"><strike>{{number_format($product['price'])}}  VND </strike></span>
+                                 <span class="special-price"><span class="amount" id="price_view" style="color:red">{{number_format((100-$product['sale'])*$product['price']/100)}} VND</span></span>
+                                 @else
+                                <span class="special-price"><span class="amount" id="price_view" style="color:red">{{number_format($product['price'])}}  VND</span></span>
+                                @endif
+
+                            </p>
                         </div>
                         <div class="price-box">
                             <font style="font-weight: bold;">Thuế VAT</font> : <span style="color:red">Giá Trên chưa bao gồm thuế VAT</span>

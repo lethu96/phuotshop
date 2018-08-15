@@ -96,7 +96,7 @@
                                 </a>
                                 <div class="content">
                                     <a href="{{asset('/product/detail/').'/'.$item->id}}">{{$item->name}}</a>
-                                    <span class="amount"> {{number_format($item->price)}}</span>
+                                    <span class="amount"> {{number_format($item->price)}}đ</span>
                                 </div>
                             </li>
                         @endforeach
@@ -111,7 +111,7 @@
                                 </a>
                                 <div class="content">
                                     <a href="{{asset('/product/detail/').'/'.$item->id}}">{{$item->name}}</a>
-                                    <span class="amount"> {{number_format($item->price)}}</span>
+                                    <span class="amount"> {{number_format($item->price)}}đ</span>
                                 </div>
                             </li>
                         @endforeach

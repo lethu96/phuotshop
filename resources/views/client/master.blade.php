@@ -164,6 +164,11 @@
     padding: 14px;
   }
 }
+.header-area.header-2.header-8 .lb-gt {
+    margin-right: 17%;
+    margin-left: 1%;
+    margin-top: 10px;
+ }
 
    </style>
 </head>

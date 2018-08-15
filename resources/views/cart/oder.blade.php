@@ -61,9 +61,9 @@
   
               </div>
               <div class="col-md-8">
-                <p>  <input type=" text" name="" value="{{ Auth::user()->name }}" class="form-control" required="required"></p>
-                <p><input type="text " name="" value="{{ Auth::user()->phone }}" class="form-control" required="required"></p>
-                <p> <input type="" name="" value="{{ Auth::user()->address }}" class="form-control" required="required" ></p>
+                <p>  <input type=" text" name="name" value="{{ Auth::user()->name }}" class="form-control" required="required"></p>
+                <p><input type="text " name="phone" value="{{ Auth::user()->phone }}" class="form-control" required="required"></p>
+                <p> <input type="" name="address" value="{{ Auth::user()->address }}" class="form-control" required="required" ></p>
                 
               </div>
                              
@@ -90,9 +90,9 @@
   
               </div>
               <div class="col-md-8">
-                <p>  <input type=" text" name="" value="{{ Auth::user()->name }}" class="form-control" required="required"></p>
-                <p><input type="text " name="" value="{{ Auth::user()->phone }}" class="form-control" required="required"></p>
-                <p> <input type="" name="" value="{{ Auth::user()->address }}" class="form-control" required="required" ></p>
+                <p>  <input type=" text" name="name" value="{{ Auth::user()->name }}" class="form-control" required="required"></p>
+                <p><input type="text " name="phone" value="{{ Auth::user()->phone }}" class="form-control" required="required"></p>
+                <p> <input type="" name="address" value="{{ Auth::user()->address }}" class="form-control" required="required" ></p>
                 
               </div>
                              

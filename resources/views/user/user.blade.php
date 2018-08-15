@@ -83,17 +83,6 @@
                 </div>
             </div>
         </div>
-        <div class="input-with-label">
-            <div class="input-with-label__wrapper">
-                <div class="input-with-label__label">
-                    <label>Ngày đăng kí </label>
-                </div>
-                <div class="input-with-label__content">
-                    <div class="my-account__inline-container">
-                        <div class="my-account__input-text">{!!Auth::user()->created_at !!}</div>
-                    </div>
-                </div>
-            </div>
         </div>
         <!-- <div class="my-account-page__submit"><button class="btn btn-solid-primary btn--m btn--inline">Lưu</button></div> -->
     </div>

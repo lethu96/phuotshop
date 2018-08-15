@@ -27,9 +27,16 @@
                                     </span>
                                 @endif</p> <!-- JS because of IE support; better: placeholder="password" -->
                 <p style="padding-left: 30%">
+                  
                 <button type="submit" class="btn btn-primary" style="background-color: #1fd24efc; border: none;">
                              {{ __('  Login   ') }}
                 </button>
+               
+                </p>
+                <p style="padding-left: 20%">
+                   <a class="btn btn-link" href="{{ url('/register') }}">
+                {{ __('Register') }}
+                </a>
 
               <a class="btn btn-link" href="{{ url('/getMail') }}">
                 {{ __('Forgot Your Password?') }}

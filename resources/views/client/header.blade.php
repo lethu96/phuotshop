@@ -1,5 +1,11 @@
 
 <header class="header-area header-2 header-8">
+    <div style="height: 42px;
+    color: #e61b36;
+    font-size: 17px;"> 
+    <label class="lb-gt" style="float: left;"> Liên Hệ : Mrs Toán  zalo/skype  : 098.193.0911</label>
+    <label  class="lb-gt" style="float: right;"> Facebook : <a href="https://www.facebook.com/luu.toan.77?ref=br_rs" style="color: blue">Lưu Đình Toán</a></label>
+     </div>
     <div class="header-middle">
         <div class="container">
             <div class="row">
@@ -44,7 +50,7 @@
                                 </li>
                                 <li>
                                     <a href="{{asset('/contact')}}">
-                                        <span class="menu-label">Liên Hệ</span>
+                                        <span class="menu-label">Giới thiệu</span>
                                     </a>
                                 </li>
                                 <li class="dropdown">
@@ -185,7 +191,7 @@
                     <div class="search-container">
                     <form action="{{asset('search')}}" method="POST">
                          {{csrf_field()}}
-                      <input type="text" placeholder="Search.." name="search" style="border: 3px solid #fff; border-radius: 26px; box-sizing: border-box padding: 5px 15px 7px;font-size: 14px;z-index: 2;position: relative;">
+                      <input type="text" placeholder="Search.." name="search" style="border: 3px solid #fff; border-radius: 26px; box-sizing: border-box padding: 5px 15px 7px;font-size: 14px;z-index: 2;position: relative;" required="required">
                       <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                   </div>
@@ -207,9 +213,9 @@
             <div class="slider-container">
                 <!-- Slider Image -->
                 <div id="mainSlider" class="nivoSlider slider-image">
-                    <img src="{{asset('img/slider/slider2.png')}}" alt="main slider" title="#htmlcaption1"/>
-                    <img src="{{asset('img/slider/slider3.png')}}" alt="main slider" title="#htmlcaption2"/>
-                    <img src="{{asset('img/slider/mac4.png')}}" alt="main slider" title="#htmlcaption3"/>
+                    <img src="{{asset('img/slider/mac4.png')}}" alt="main slider" title="#htmlcaption1"/>
+                    <img src="{{asset('img/slider/slider2.png')}}" alt="main slider" title="#htmlcaption2"/>
+                    <img src="{{asset('img/slider/slider3.png')}}" alt="main slider" title="#htmlcaption3"/>
                 </div>
             </div>
             <!-- Slider End-->

@@ -10,13 +10,18 @@
     </div>
     <div class="row" style="font-size: 16px;
     margin: 10px 0px;">
-      <div class="col-md-2"> Số điện thoại : </div>
+      <div class="col-md-2">  Địa chỉ : </div>
     <div class="col-md-4" style="font-weight: bold;"> {{$bill['address_customer']}}</div>
     </div>
     <div class="row" style="font-size: 16px;
     margin: 10px 0px 18px;">
-      <div class="col-md-2"> Địa chỉ :  </div>
+      <div class="col-md-2"> Số điện thoại :  </div>
     <div class="col-md-4" style="font-weight: bold;"> {{$bill['phone_customer']}}</div>
+    </div>
+    <div class="row" style="font-size: 16px;
+    margin: 10px 0px 18px;">
+      <div class="col-md-2"> Ngày đặt hàng :  </div>
+    <div class="col-md-4" style="font-weight: bold;"> {{date("d-m-Y", strtotime($bill['created_at']))}}</div>
     </div>
     
      <table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
@@ -44,8 +49,15 @@
                 <td>{{$item->proname}}</td>
                 <td> <img width="100px" height="100px" src="/img/{{$item->proimage}}"></td>
                 <td>{{$item->qty}}</td>
-                <td>{{$item->price}}</td>
-                <td>{{number_format($item->price*$item->qty)}} VNĐ</td>
+                @if($item->sale!=null)
+                <td> {{number_format((100-$item->sale)*$item->price/100)}} VND</td>
+
+                <td>{{number_format(((100-$item->sale)*$item->price/100)*$item->qty)}} VNĐ</td>
+
+                  @else 
+                  <td> {{$item->price}} VND</td>
+                  <td>{{number_format($item->price*$item->qty)}} VNĐ</td>
+                @endif
             </tr>
         @endforeach
         </tbody>

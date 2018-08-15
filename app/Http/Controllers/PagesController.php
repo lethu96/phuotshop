@@ -43,6 +43,7 @@ class PagesController extends Controller
         </script>";
 
     }
+
     public function listsale(){
       $sale= Product::where('sale','!=','null')->get()->toArray();
       $cate = TypeProduct::all()->toArray();
@@ -81,8 +82,8 @@ class PagesController extends Controller
                            ->get()                             
                            ->toArray();
         $sale= Product::where('sale','!=','null')->paginate(4);
-        $data1=Product::where('type_id', '=', 1)->paginate(4);
-        $data3=Product::where('type_id', '=', 3)->paginate(4);
+        $data1=Product::where('type_id', '=', 1)->where('sale','=',NULL)->paginate(4);
+        $data3=Product::where('type_id', '=', 3)->where('sale','=',NULL)->paginate(4);
         return view('client.index',['new' => $new ,'last' =>$last, 'view' => $view ,'data1' => $data1,'data3' => $data3,'cate' => $cate, 'sale' => $sale]);
     }
 
@@ -115,7 +116,8 @@ class PagesController extends Controller
 
         public function typeProduct($id)
     {
-        $type = Product::where('type_id', '=', $id)->paginate(12);
+        $type = Product::where('type_id', '=', $id)
+                ->where('sale','=',NULL)->paginate(12);
         $cate = TypeProduct::all()->toArray();
                 $new = DB::table('products')->orderBy('id', 'desc')
                            ->limit(5)                           
@@ -219,9 +221,9 @@ class PagesController extends Controller
             $total = $total + ( $row->qty * $row->price);
         }
         $oder->user_id = Auth::user()->id;
-        $oder->name_customer = Auth::user()->name;
-        $oder->address_customer = Auth::user()->address;
-        $oder->phone_customer =  Auth::user()->phone;
+        $oder->name_customer = $rq->name;
+        $oder->address_customer = $rq->address;
+        $oder->phone_customer =  $rq->phone;
         $oder->amount = Cart::count();
         $oder->total =  floatval($total);
         $oder->note = $rq->txtnote;
@@ -255,9 +257,9 @@ class PagesController extends Controller
             $total = $total + ( $row->qty * $row->price);
         }
         $oder->user_id = Auth::user()->id;
-        $oder->name_customer = Auth::user()->name;
-        $oder->address_customer = Auth::user()->address;
-        $oder->phone_customer =  Auth::user()->phone;
+        $oder->name_customer = $rq->name;
+        $oder->address_customer = $rq->address;
+        $oder->phone_customer =  $rq->phone;
         $oder->amount = Cart::count();
         $oder->total =  floatval($total);
         $oder->note = $rq->txtnote;

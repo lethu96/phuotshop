@@ -4,18 +4,12 @@
     <div class="setcolor">
             <div class="page-title">
               <div class="title_left">
-                <h3>Danh sách hóa đơn</h3>
+                <h3>Kết quả tìm kiếm</h3>
+                <div class="col-md-12"> Tìm thấy  {{count($results)}}  sản phẩm  liên quan từ khóa  {{$keyword}}  </div>
               </div>
             </div>
 
             <div class="clearfix"></div>
-            <div class="search-container">
-                    <form action="{{asset('bill-search')}}" method="POST">
-                         {{csrf_field()}}
-                      <input type="text" placeholder="Search.." name="search" style="border: 3px solid #fff; border-radius: 26px; box-sizing: border-box padding: 5px 15px 7px;font-size: 14px;z-index: 2;position: relative;">
-                      <button type="submit" class="btn btn-search " style="color: #fff; background-color: #ed3c13;"><i class="fa fa-search" ></i></button>
-                    </form>
-            </div>
 
             <div class="row">
                           <div class="col-md-12 col-sm-12 col-xs-12">
@@ -61,7 +55,7 @@
 
 
                                               <tbody>
-                                                @foreach($data as $item)
+                                                @foreach($results as $item)
                                                     <tr>
                                                         <td>HD{{$item['id']}}</td>
                                                         <td>{{$item['name_customer']}}</td>
@@ -80,6 +74,9 @@
                                                             <a href="{{asset('/bill-update/').'/'.$item['id']}}" class="btn btn-primary ">
                                                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                                                             </a>
+                                                            <a href="{{asset('/bill-destroy/').'/'.$item['id']}}" class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa không??')">
+                                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                            </a>
                                                             <a href="{{asset('/bill-detail/').'/'.$item['id']}}" class="btn btn-success ">
                                                                 <i class="fa fa-folder-open" aria-hidden="true"></i>
                                                             </a>
@@ -88,9 +85,12 @@
                                                 @endforeach
                                                 </tbody>
                                             </table>
+                                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button class="btn btn-primary" type="button"><a href="/bill" style="color: white;">Cancel</a></button>
+                         
+                        </div>
                             </div>
                         </div>
-                           <center> {!!$data->links()!!}</center>
                     </div>
                 </div>
             </div>
