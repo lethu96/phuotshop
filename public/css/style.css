@@ -12,6 +12,7 @@ html , body{
  
  }
  
+ 
 .full-height{
  height:100%;
  }
@@ -4263,4 +4264,12 @@ ul.notifications {
 {
     display: block;
     margin-top: 10px;
+}
+.btn-search {
+    color: #fff;
+    background-color: #ed3c13;
+}
+.btn-rebase{
+    color: #fff;
+    background-color: #ed3c13;
 }

@@ -85,6 +85,7 @@ Route::group(['middleware' =>'admin'], function () {
 	Route::post('/bill/create', 'BillController@store');
 	Route::get('bill-detail/{id}','BillController@detail');
 	Route::get('/report', 'ReportController@overview')->name('report');
+	Route::post('bill-search','BillController@search');
 
 	Route::get('/property','PropertyController@index')->name('property');
 	Route::get('/property/create','PropertyController@getStore');
@@ -113,7 +114,6 @@ Route::get('dat-hang', ['as' => 'getoder', 'uses' => 'PagesController@getoder'])
 Route::post('dat-hang', ['as' => 'postoder', 'uses' => 'PagesController@postoder']);
 Route::post('dat-hang-shop','PagesController@payment');
 Route::get('contact', 'PagesController@contact');
-Route::get('test', 'PagesController@showProductSale');
 Route::post('search', 'PagesController@search');
 Route::get('list-sale','PagesController@listsale');
 Route::get('/getMail', function () {
